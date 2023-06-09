@@ -12,7 +12,7 @@
     width: 880px;
   }
 
-  .card__list {
+  .card {
     grid-template-columns: repeat(3, 282px);
   }
 
@@ -22,7 +22,7 @@
 }
 
 @media (max-width: 890px) {
-  .card__list {
+  .card {
     grid-template-columns: repeat(2, 282px);
   }
 
@@ -96,7 +96,7 @@
     width: 18px;
   }
 
-  .card__list {
+  .card {
     grid-template-columns: 282px;
   }
 
@@ -113,7 +113,7 @@
 }
 
 @media (max-width: 320px) {
-  .card__list {
+  .card {
     grid-template-columns: 282px;
   }
 
