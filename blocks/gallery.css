@@ -1,4 +1,10 @@
 .gallery {
   display: flex;
-  margin: 47px auto 0;
+  margin: 47.25px auto 0;
+}
+
+@media (max-width: 320px) {
+  .gallery {
+    margin: 36px auto 0;
+  }
 }

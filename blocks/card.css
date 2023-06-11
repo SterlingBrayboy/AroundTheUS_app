@@ -1,4 +1,4 @@
-.card {
+.gallery__cards {
   display: grid;
   grid-gap: 20px 17px;
   grid-template-columns: repeat(3, 282px);
@@ -7,27 +7,28 @@
   margin: auto;
 }
 
-.card__list {
+.gallery__card {
   display: flex;
   flex-wrap: wrap;
 }
 
-.card__image {
+.gallery__card-image {
   width: 282px;
   height: 282px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.card__description {
+.gallery__card-description {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   background-color: #fff;
   color: #000;
-  padding: 25px 0 20px 25px;
+  width: 100%;
+  padding: 25px 20px 20px;
   margin: 0;
   font-size: 24px;
   font-weight: 900;
@@ -38,7 +39,7 @@
   overflow: hidden;
 }
 
-.card__like-button {
+.gallery__card-like-button {
   height: 18px;
   width: 21px;
   background: url(../images/heart-icon.svg) no-repeat;
@@ -46,20 +47,20 @@
   cursor: pointer;
 }
 
-.card__like-button:hover {
+.gallery__card-like-button:hover {
   color: #fff;
   opacity: 50%;
   transition: 0.2s ease-in-out;
 }
 
-@media (max-width: 890px) {
-  .card {
+@media (max-width: 880px) {
+  .gallery__cards {
     grid-template-columns: repeat(2, 282px);
   }
 }
 
 @media (max-width: 580px) {
-  .card {
+  .gallery__cards {
     grid-template-columns: 282px;
   }
 }
