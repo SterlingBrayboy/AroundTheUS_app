@@ -8,6 +8,7 @@
 @media (max-width: 320px) {
   .logo {
     margin-bottom: 32px;
+    margin-left: 27px;
     width: 126px;
     height: 24px;
   }

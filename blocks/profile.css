@@ -28,7 +28,7 @@
   margin-right: 18px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  max-width: 373px;
 }
 
 .profile__description {
@@ -38,6 +38,10 @@
   font-weight: 400;
   font-family: "Inter", Arial, sans-serif;
   line-height: 21.78px;
+  max-width: 415px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__edit-button {
@@ -51,7 +55,7 @@
 }
 
 .profile__edit-button:hover {
-  opacity: 50%;
+  opacity: 60%;
   transition: 0.2s ease-in-out;
 }
 
@@ -68,7 +72,7 @@
 }
 
 .profile__add-button:hover {
-  opacity: 50%;
+  opacity: 60%;
   transition: 0.2s ease-in-out;
 }
 
@@ -80,19 +84,15 @@
 
 @media (max-width: 770px) {
   .profile {
-    max-width: 580px;
+    max-width: 700px;
   }
 
   .profile__title {
     font-size: 1.8rem;
   }
-
-  .profile__add-button {
-    width: 100px;
-  }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 700px) {
   .profile {
     flex-direction: column;
   }
@@ -118,13 +118,20 @@
   }
 
   .profile__add-button {
-    width: 282px;
+    width: 584px;
     margin: auto;
   }
 
   .profile__edit-button {
     height: 18px;
     width: 18px;
+  }
+}
+
+@media (max-width: 580px) {
+  .profile__add-button {
+    background-size: 16px;
+    width: 282px;
   }
 }
 

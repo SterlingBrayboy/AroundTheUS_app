@@ -30,15 +30,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 25px;
   background-color: #fff;
   color: #000;
   width: 100%;
-  padding: 25px 20px 20px;
+}
+
+.gallery__card-title {
   margin: 0;
+  padding: 25px 0 20px;
+  max-width: 282px;
   font-size: 24px;
   font-weight: 900;
   line-height: 29.05px;
   font-family: "Inter", Arial, sans-serif;
+  max-width: 282px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -53,7 +60,6 @@
 }
 
 .gallery__card-like-button:hover {
-  color: #fff;
   opacity: 50%;
   transition: 0.2s ease-in-out;
 }
