@@ -3,14 +3,14 @@
   color: #fff;
 }
 
-.page__section {
+.page__content {
   max-width: 880px;
   position: relative;
   margin: 0 auto;
 }
 
-.page__content {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+@media (max-width: 320px) {
+  .page__content {
+    width: auto;
+  }
 }

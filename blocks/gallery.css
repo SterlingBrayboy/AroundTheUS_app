@@ -1,4 +1,4 @@
 .gallery {
   display: flex;
-  margin-top: 47px;
+  margin: 47px auto 0;
 }

@@ -1,6 +1,6 @@
 .footer {
   margin: 67px auto 60px;
-  width: 880px;
+  max-width: 880px;
 }
 
 .footer__copyright {
@@ -10,4 +10,16 @@
   line-height: 21.78px;
   color: #545454;
   margin: 0;
+}
+
+@media (max-width: 890px) {
+  .footer {
+    max-width: 580px;
+  }
+}
+
+@media (max-width: 580px) {
+  .footer {
+    max-width: 580px;
+  }
 }
