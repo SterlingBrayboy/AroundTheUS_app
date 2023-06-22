@@ -25,4 +25,17 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
+// Function that prompts the edit button to open a Modal form (modal_opened modifier)
+
+const profileEditButton = document.querySelector("#profile__edit-button");
+const profileEditModal = document.querySelector("#profile__edit-modal");
+profileEditButton.addEventListener("click", () => {
+  profileEditModal.classList.add("modal_opened");
+});
+
+// Function that prompts the 'X' button to close the opened Modal form (modal_opened modifier)
+
+const profileEditCloseButton = document.querySelector("#modal__close");
+profileEditCloseButton.addEventListener("click", () => {
+  profileEditModal.classList.remove("modal_opened");
+});
