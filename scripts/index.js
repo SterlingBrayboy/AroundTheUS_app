@@ -52,10 +52,11 @@ function closePopup() {
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
+  const cardListEl = document.querySelector(".gallery__cards");
   const cardImageEl = cardElement.querySelector(".gallery__card-image");
   const cardTitleEl = cardElement.querySelector(".gallery__card-title");
   cardTitleEl.textContent = cardData.name;
-  return cardElement;
+  return getCardElement;
 }
 
 // EVENT HANDLER
