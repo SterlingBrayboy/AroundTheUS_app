@@ -54,8 +54,7 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".gallery__card-image");
   const cardTitleEl = cardElement.querySelector(".gallery__card-title");
-  // cardElement.querySelector(".gallery__card-image1").src =
-  //   "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg";
+  cardImageEl.src = cardData.link;
   cardTitleEl.textContent = cardData.name;
   return cardElement;
 }
