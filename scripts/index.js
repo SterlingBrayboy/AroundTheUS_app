@@ -36,9 +36,9 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const profileEditForm = profileEditModal.querySelector(".modal__form");
 const modalSaveButton = document.querySelector("#modal-save-button");
-const cardListEl = document.querySelector(".cards__list");
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+const cardListEl = document.querySelector(".gallery__cards");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
@@ -52,21 +52,21 @@ function closePopup() {
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardListEl = document.querySelector(".gallery__cards");
   const cardImageEl = cardElement.querySelector(".gallery__card-image");
   const cardTitleEl = cardElement.querySelector(".gallery__card-title");
+  // cardElement.querySelector(".gallery__card-image1").src =
+  //   "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg";
   cardTitleEl.textContent = cardData.name;
-  return getCardElement;
+  return cardElement;
 }
 
 // EVENT HANDLER
 
 function handlerprofileEditSubmit(e) {
   e.preventDefault();
-  console.log("form submitted");
-  // profileTitle.textContent = profileTitleInput.value;
-  // profileDescription.textContent = profileDescriptionInput.value;
-  // closePopup();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closePopup();
 }
 
 // EVENT LISTENERS
