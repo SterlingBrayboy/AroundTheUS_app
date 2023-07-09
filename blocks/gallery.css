@@ -17,6 +17,23 @@
   flex-wrap: wrap;
 }
 
+.gallery__card-trash {
+  border: none;
+  position: absolute;
+  background: url(../images/Trash.svg) no-repeat;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 249px;
+  margin-top: 18px;
+  width: 18px;
+  height: 19.3px;
+  cursor: pointer;
+}
+
+.gallery__card-trash:hover {
+  opacity: 0.6;
+  transition: 0.2s ease-in-out;
+}
+
 .gallery__card-image {
   width: 282px;
   height: 282px;
@@ -48,7 +65,7 @@
   overflow: hidden;
 }
 
-.gallery__card-like-button {
+.gallery__card-like {
   height: 18px;
   width: 21px;
   background: url(../images/heart-icon.svg) no-repeat;
@@ -56,7 +73,11 @@
   cursor: pointer;
 }
 
-.gallery__card-like-button:hover {
+.gallery__card-like_active {
+  background-image: url(../images/heart-icon-black.svg);
+}
+
+.gallery__card-like:hover {
   opacity: 50%;
   transition: 0.2s ease-in-out;
 }

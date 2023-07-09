@@ -25,30 +25,35 @@ const initialCards = [
   },
 ];
 
-// ELEMENTS
+// VARIABLES & ELEMENTS
 
 const profileEditButton = document.querySelector("#profile__edit-button");
 const profileEditModal = document.querySelector("#profile__edit-modal");
-const profileEditCloseButton = document.querySelector("#modal__close");
+const profileAddModal = document.querySelector("#profile__add-modal");
+const profileEditCloseButton = profileEditModal.querySelector("#modal__close");
+const profileAddCloseButton = profileAddModal.querySelector("#modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const profileTitleInput = document.querySelector("#profile-title-input");
+const profileTitleInput = document.querySelector("#profile-name-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+const addCardTitle = document.querySelector("#modal-title-input");
+const addImageUrl = document.querySelector("#modal-image-url");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileAddButton = document.querySelector(".profile__add-button");
 const cardListEl = document.querySelector(".gallery__cards");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
 // FUNCTIONS
 
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
-function openPopup() {
-  profileEditModal.classList.add("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
 
 function fillProfileForm() {
@@ -56,41 +61,68 @@ function fillProfileForm() {
   profileDescriptionInput.value = profileDescription.textContent;
 }
 
-// GET CARD
+function renderCard(cardData, wrapper) {
+  const cardElement = getCardElement(cardData);
+  wrapper.prepend(cardElement);
+}
+
+// GET CARD FUNCTION & LIKE BUTTON
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".gallery__card-image");
   const cardTitleEl = cardElement.querySelector(".gallery__card-title");
+  const likeButton = cardElement.querySelector(".gallery__card-like");
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("gallery__card-like_active");
+  });
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
   return cardElement;
 }
 
-// EVENT HANDLER
+// EVENT HANDLERS
 
-function handlerProfileEditSubmit(e) {
-  e.preventDefault();
+function handlerProfileEditSubmit(evt) {
+  evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+  closeModal(profileEditModal);
+}
+
+function handlerAddCardSubmit(e) {
+  e.preventDefault();
+  const name = addCardTitle.value;
+  const link = addImageUrl.value;
+  renderCard({ name, link }, cardListEl);
+  closeModal(profileAddModal);
 }
 
 // EVENT LISTENERS
 
-profileEditButton.addEventListener("click", () => {
-  fillProfileForm();
-  openPopup();
-});
+// Modal Form
 
-profileEditCloseButton.addEventListener("click", () => {
-  closePopup();
-});
+profileEditButton.addEventListener("click", () => openModal(profileEditModal));
+profileEditCloseButton.addEventListener("click", () =>
+  closeModal(profileEditModal)
+);
+profileAddButton.addEventListener("click", () => openModal(profileAddModal));
+profileAddCloseButton.addEventListener("click", () =>
+  closeModal(profileAddModal)
+);
+
+// Save Button
 
 profileEditForm.addEventListener("submit", handlerProfileEditSubmit);
+profileAddModal.addEventListener("submit", handlerAddCardSubmit);
 
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.append(cardElement);
+// Card Data
+
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+const cardTrash = document.querySelector(".gallery__card-trash");
+
+cardTrash.addEventListener("click", () => {
+  cardListEl.classList.remove(".gallery__card-title");
 });
