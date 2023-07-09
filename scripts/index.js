@@ -124,5 +124,5 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 const cardTrash = document.querySelector(".gallery__card-trash");
 
 cardTrash.addEventListener("click", () => {
-  cardListEl.classList.remove(".gallery__card-title");
+  cardListEl.classList.remove(".gallery__card");
 });
