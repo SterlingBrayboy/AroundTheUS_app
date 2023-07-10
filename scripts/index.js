@@ -56,6 +56,10 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
+function deleteCard() {
+  cardListEl.classList.remove(".gallery__card");
+}
+
 function fillProfileForm() {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -75,6 +79,10 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".gallery__card-like");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("gallery__card-like_active");
+  });
+  const cardTrash = cardElement.querySelector(".gallery__card-trash");
+  cardTrash.addEventListener("click", () => {
+    deleteCard();
   });
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
@@ -120,9 +128,3 @@ profileAddModal.addEventListener("submit", handlerAddCardSubmit);
 // Card Data
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-
-const cardTrash = document.querySelector(".gallery__card-trash");
-
-cardTrash.addEventListener("click", () => {
-  cardListEl.classList.remove(".gallery__card");
-});
