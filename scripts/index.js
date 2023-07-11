@@ -42,6 +42,8 @@ const addCardTitle = document.querySelector("#modal-title-input");
 const addImageUrl = document.querySelector("#modal-image-url");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileAddButton = document.querySelector(".profile__add-button");
+const cardImageModal = document.querySelector(".modal__card-overlay");
+const modalImageCloseButton = cardImageModal.querySelector("#modal__close");
 const cardListEl = document.querySelector(".gallery__cards");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -54,10 +56,6 @@ function closeModal(modal) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-}
-
-function deleteCard() {
-  cardListEl.classList.remove(".gallery__card");
 }
 
 function fillProfileForm() {
@@ -75,6 +73,11 @@ function renderCard(cardData, wrapper) {
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".gallery__card-image");
+  // const cardImageModal = cardElement.querySelector(".modal__card-image");
+  // const cardImageTitle = cardElement.querySelector(".modal__card-title");
+  cardImageEl.addEventListener("click", () => {
+    openModal(cardImageModal);
+  });
   const cardTitleEl = cardElement.querySelector(".gallery__card-title");
   const likeButton = cardElement.querySelector(".gallery__card-like");
   likeButton.addEventListener("click", () => {
@@ -82,11 +85,14 @@ function getCardElement(cardData) {
   });
   const cardTrash = cardElement.querySelector(".gallery__card-trash");
   cardTrash.addEventListener("click", () => {
-    deleteCard();
+    cardElement.remove();
   });
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
+  // cardImageModal.src = cardData.link;
+  // cardImageModal.alt = cardData.name;
+  // cardImageTitle.textContent = cardData.name;
   return cardElement;
 }
 
@@ -124,6 +130,12 @@ profileAddCloseButton.addEventListener("click", () =>
 
 profileEditForm.addEventListener("submit", handlerProfileEditSubmit);
 profileAddModal.addEventListener("submit", handlerAddCardSubmit);
+
+// Image Modal
+
+modalImageCloseButton.addEventListener("click", () => {
+  closeModal(cardImageModal);
+});
 
 // Card Data
 

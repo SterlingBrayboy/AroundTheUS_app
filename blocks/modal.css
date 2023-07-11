@@ -22,6 +22,42 @@
   width: 330px;
 }
 
+/* FOR CARDS */
+
+.modal__card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.modal__card {
+  position: relative;
+  border: none;
+  margin: auto;
+}
+
+.modal__card-image {
+  width: 433px;
+  height: 548px;
+}
+
+.modal__card-title {
+  margin: 0;
+  padding-top: 10px;
+  max-width: 291p;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+}
+
 .modal_opened {
   display: flex;
 }
