@@ -9,7 +9,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
   display: none;
+}
+
+.modal:hover {
+  opacity: 1;
 }
 
 .modal__container {
@@ -53,9 +59,29 @@
   margin: 0;
   padding-top: 10px;
   max-width: 291p;
+  color: #fff;
   font-size: 12px;
   font-weight: 400;
   font-family: "Inter", Arial, sans-serif;
+}
+
+.modal__card-button {
+  border: none;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  background-image: url(../images/close-icon.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.modal__card-button:hover {
+  opacity: 0.6;
+  transition: 0.2s ease-in-out;
 }
 
 .modal_opened {
@@ -130,6 +156,32 @@
   transition: 0.2s ease-in-out;
 }
 
+@media (max-width: 522px) {
+  .modal__card-button {
+    left: 355px;
+    bottom: calc(100% + 10px);
+  }
+
+  .modal__card-image {
+    width: 345px;
+    height: 460px;
+  }
+}
+
+@media (max-width: 444px) {
+  .modal__card-button {
+    left: 310px;
+    bottom: calc(100% + 10px);
+    width: 35px;
+    height: 35px;
+  }
+
+  .modal__card-image {
+    width: 300px;
+    height: 415px;
+  }
+}
+
 @media (max-width: 490px) {
   .modal__container {
     width: 258px;
@@ -168,5 +220,17 @@
   .modal__container-button {
     font-size: 14px;
     line-height: 17px;
+  }
+
+  .modal__card-image {
+    width: 240px;
+    height: 299px;
+  }
+
+  .modal__card-button {
+    left: 243px;
+    width: 30px;
+    height: 30px;
+    bottom: calc(100% + 5px);
   }
 }
