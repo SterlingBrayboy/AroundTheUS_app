@@ -30,13 +30,13 @@ const initialCards = [
 const profileEditButton = document.querySelector("#profile__edit-button");
 const profileEditModal = document.querySelector("#profile__edit-modal");
 const profileAddModal = document.querySelector("#profile__add-modal");
-const cardImageModal = document.querySelector(".modal__card-overlay");
+const cardImageModal = document.querySelector("#picture-modal");
 const profileEditCloseButton = profileEditModal.querySelector("#modal__close");
 const profileAddCloseButton = profileAddModal.querySelector(
   "#modal-add-button-close"
 );
 const cardImageCloseButton = cardImageModal.querySelector(
-  "#modal__card-button"
+  "#picture__modal-button"
 );
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
@@ -49,7 +49,7 @@ const addImageUrl = document.querySelector("#modal-image-url");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileAddButton = document.querySelector(".profile__add-button");
 const modalImageCloseButton = cardImageModal.querySelector(
-  "#modal__card-button"
+  "#picture__modal-button"
 );
 const cardListEl = document.querySelector(".gallery__cards");
 const cardTemplate =
@@ -84,7 +84,7 @@ function getCardElement(cardData) {
     openModal(cardImageModal);
   });
   const cardTitleEl = cardElement.querySelector(".gallery__card-title");
-  const cardImageTitle = cardImageModal.querySelector(".modal__card-title");
+  const cardImageTitle = cardImageModal.querySelector(".modal__picture-title");
   const likeButton = cardElement.querySelector(".gallery__card-like");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("gallery__card-like_active");
@@ -97,7 +97,7 @@ function getCardElement(cardData) {
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
   cardImageEl.addEventListener("click", () => {
-    const img = cardImageModal.querySelector(".modal__card-image");
+    const img = cardImageModal.querySelector(".modal__picture-src");
     img.src = cardData.link;
     img.alt = cardData.name;
     cardImageTitle.textContent = cardData.name;
