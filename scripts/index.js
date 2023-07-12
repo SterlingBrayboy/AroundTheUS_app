@@ -130,10 +130,10 @@ function handlerAddCardSubmit(e) {
 
 // Modal Form
 
-profileEditButton.addEventListener(
-  "click",
-  () => fillProfileForm() || openModal(profileEditModal)
-);
+profileEditButton.addEventListener("click", () => {
+  fillProfileForm();
+  openModal(profileEditModal);
+});
 profileEditCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
 );
