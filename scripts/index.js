@@ -31,7 +31,9 @@ const profileEditButton = document.querySelector("#profile__edit-button");
 const profileEditModal = document.querySelector("#profile__edit-modal");
 const profileAddModal = document.querySelector("#profile__add-modal");
 const cardImageModal = document.querySelector("#picture-modal");
-const profileEditCloseButton = profileEditModal.querySelector("#modal__close");
+const profileEditCloseButton = profileEditModal.querySelector(
+  "#profile-modal-close"
+);
 const profileAddCloseButton = profileAddModal.querySelector(
   "#modal-add-button-close"
 );
@@ -47,6 +49,7 @@ const profileDescriptionInput = document.querySelector(
 const addCardTitle = document.querySelector("#modal-title-input");
 const addImageUrl = document.querySelector("#modal-image-url");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileAddForm = profileAddModal.querySelector("#add-card-form");
 const profileAddButton = document.querySelector(".profile__add-button");
 const modalImageCloseButton = cardImageModal.querySelector(
   "#picture__modal-button"
@@ -54,6 +57,7 @@ const modalImageCloseButton = cardImageModal.querySelector(
 const cardListEl = document.querySelector(".gallery__cards");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+const img = cardImageModal.querySelector(".modal__picture-src");
 
 // FUNCTIONS
 
@@ -97,7 +101,6 @@ function getCardElement(cardData) {
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
   cardImageEl.addEventListener("click", () => {
-    const img = cardImageModal.querySelector(".modal__picture-src");
     img.src = cardData.link;
     img.alt = cardData.name;
     cardImageTitle.textContent = cardData.name;
@@ -120,13 +123,17 @@ function handlerAddCardSubmit(e) {
   const link = addImageUrl.value;
   renderCard({ name, link }, cardListEl);
   closeModal(profileAddModal);
+  profileAddForm.reset();
 }
 
 // EVENT LISTENERS
 
 // Modal Form
 
-profileEditButton.addEventListener("click", () => openModal(profileEditModal));
+profileEditButton.addEventListener(
+  "click",
+  () => fillProfileForm() || openModal(profileEditModal)
+);
 profileEditCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
 );
