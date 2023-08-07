@@ -95,13 +95,28 @@
   border: none;
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 0;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   padding-bottom: 13.34px;
-  margin-bottom: 29.74px;
+  margin-bottom: 5px;
+}
+
+/* .modal__input:invalid {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
+  margin-bottom: 5px;
+} */
+
+.modal__input-error {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #f00;
+  margin-bottom: 13px;
+  opacity: 0;
 }
 
 .modal__container-button {
