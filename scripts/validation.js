@@ -1,5 +1,5 @@
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-  const errorMessageEl = formEl.querySelector(`#${inputEl.id}-input`);
+  const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   console.log(errorMessageEl);
   // inputEl.classList.add(inputErrorClass);
   // errorMessageEl.textContent = inputEl.validationMessage;
