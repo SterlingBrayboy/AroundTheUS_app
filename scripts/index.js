@@ -42,9 +42,9 @@ const cardImageCloseButton = cardImageModal.querySelector(
 );
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const profileTitleInput = document.querySelector("#profile-name-input-error");
+const profileTitleInput = document.querySelector("#profile-name-input");
 const profileDescriptionInput = document.querySelector(
-  "#profile-description-input-error"
+  "#profile-description-input"
 );
 const addCardTitle = document.querySelector("#modal-title-input");
 const addImageUrl = document.querySelector("#modal-image-url");
