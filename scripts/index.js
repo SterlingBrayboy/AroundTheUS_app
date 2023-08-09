@@ -58,6 +58,7 @@ const cardListEl = document.querySelector(".gallery__cards");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const img = cardImageModal.querySelector(".modal__picture-src");
+// const modal = document.querySelector(".modal");
 
 // FUNCTIONS
 
@@ -141,6 +142,7 @@ profileAddButton.addEventListener("click", () => openModal(profileAddModal));
 profileAddCloseButton.addEventListener("click", () =>
   closeModal(profileAddModal)
 );
+// modal.addEventListener("click", () => closeModal(modal));
 
 // Save Button
 

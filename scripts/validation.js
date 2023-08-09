@@ -1,6 +1,5 @@
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-  console.log(errorMessageEl);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.add(errorClass);
@@ -8,7 +7,6 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
 
 function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-  console.log(errorMessageEl);
   inputEl.classList.remove(inputErrorClass);
   errorMessageEl.textContent = "";
   errorMessageEl.classList.remove(errorClass);
@@ -77,9 +75,9 @@ const config = {
   formSelector: ".modal__container",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__container-button",
-  inactiveButtonClass: ".modal__container-button_disabled",
-  inputErrorClass: ".modal__input-error",
-  errorClass: ".modal__input-error_visible",
+  inactiveButtonClass: "modal__container-button_disabled",
+  inputErrorClass: "modal__input-error",
+  errorClass: "modal__input-error_visible",
 };
 
 enableValidation(config);
