@@ -83,10 +83,14 @@ function renderCard(cardData, wrapper) {
 
 document.addEventListener("keydown", function (evt) {
   if (evt.key === "Escape") {
-    closeModal(profileEditModal);
-    closeModal(profileAddModal);
-    closeModal(cardImageModal);
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
   }
+});
+
+document.addEventListener("mousedown", function () {
+  const openedModal = document.querySelector(".modal_opened");
+  closeModal(openedModal);
 });
 
 // GET CARD FUNCTION & LIKE BUTTON
@@ -94,9 +98,6 @@ document.addEventListener("keydown", function (evt) {
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".gallery__card-image");
-  cardImageEl.addEventListener("click", () => {
-    openModal(cardImageModal);
-  });
   const cardTitleEl = cardElement.querySelector(".gallery__card-title");
   const cardImageTitle = cardImageModal.querySelector(".modal__picture-title");
   const likeButton = cardElement.querySelector(".gallery__card-like");
@@ -114,6 +115,7 @@ function getCardElement(cardData) {
     img.src = cardData.link;
     img.alt = cardData.name;
     cardImageTitle.textContent = cardData.name;
+    openModal(cardImageModal);
   });
   return cardElement;
 }
