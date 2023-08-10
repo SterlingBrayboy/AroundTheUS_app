@@ -58,7 +58,6 @@ const cardListEl = document.querySelector(".gallery__cards");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const img = cardImageModal.querySelector(".modal__picture-src");
-// const modal = document.querySelector(".modal");
 
 // FUNCTIONS
 
@@ -79,6 +78,16 @@ function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
 }
+
+// Keydown Escape Key Function To Close Modals
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    closeModal(profileEditModal);
+    closeModal(profileAddModal);
+    closeModal(cardImageModal);
+  }
+});
 
 // GET CARD FUNCTION & LIKE BUTTON
 
@@ -142,7 +151,8 @@ profileAddButton.addEventListener("click", () => openModal(profileAddModal));
 profileAddCloseButton.addEventListener("click", () =>
   closeModal(profileAddModal)
 );
-// modal.addEventListener("click", () => closeModal(modal));
+
+const modal = document.querySelector(".modal");
 
 // Save Button
 

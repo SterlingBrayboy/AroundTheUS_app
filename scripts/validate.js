@@ -14,23 +14,29 @@ function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
 
 function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, options);
-  } else {
-    hideInputError(formEl, inputEl, options);
+    return showInputError(formEl, inputEl, options);
   }
+
+  hideInputError(formEl, inputEl, options);
+}
+
+function hasInvalidInput(inputList) {
+  return !inputList.every((inputEl) => inputEl.validity.valid);
 }
 
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   let foundInvalid = false;
-  inputEls.forEach((inputEl) => {
-    if (inputEl.validity.valid) {
-      foundInvalid = true;
-    }
-  });
 
-  if (foundInvalid) {
+  // inputEls.forEach((inputEl) => {
+  //   if (inputEl.validity.valid) {
+  //     foundInvalid = true;
+  //   }
+  // });
+
+  if (hasInvalidInput(inputEls)) {
     submitButton.classList.add(inactiveButtonClass);
-    return (submitButton.disabled = true);
+    submitButton.disabled = true;
+    return;
   }
 
   submitButton.classList.remove(inactiveButtonClass);
