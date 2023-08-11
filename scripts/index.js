@@ -88,10 +88,10 @@ document.addEventListener("keydown", function (evt) {
   }
 });
 
-document.addEventListener("mousedown", function () {
-  const openedModal = document.querySelector(".modal_opened");
-  closeModal(openedModal);
-});
+// document.addEventListener("mousedown", function () {
+//   const openedModal = document.querySelector(".modal_opened");
+//   closeModal(openedModal);
+// });
 
 // GET CARD FUNCTION & LIKE BUTTON
 
