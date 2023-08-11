@@ -63,10 +63,14 @@ const img = cardImageModal.querySelector(".modal__picture-src");
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
+  document.removeEventListener("keydown", closeModalByEscape);
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
+  document.addEventListener("keydown", closeModalByEscape);
 }
 
 function fillProfileForm() {
@@ -79,19 +83,22 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 
+// Mouse Click Key Function To Close Modals
+
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.target);
+  }
+}
+
 // Keydown Escape Key Function To Close Modals
 
-document.addEventListener("keydown", function (evt) {
+function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closeModal(openedModal);
   }
-});
-
-document.addEventListener("dblclick", () => {
-  const openedModal = document.querySelector(".modal_opened");
-  closeModal(openedModal);
-});
+}
 
 // GET CARD FUNCTION & LIKE BUTTON
 
