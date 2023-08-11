@@ -108,8 +108,6 @@
   font-family: "Inter", Arial, sans-serif;
   font-size: 12px;
   font-weight: 400;
-  color: #f00;
-  opacity: 0;
   margin: 0;
 }
 
@@ -117,6 +115,7 @@
   border-top: 1px solid rgba(255, 0, 0, 1);
   padding-top: 5px;
   padding-bottom: 13px;
+  color: #f00;
   opacity: 1;
 }
 
