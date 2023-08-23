@@ -45,9 +45,12 @@ class FormValidator {
     submitButton.disabled = false;
   }
 
-  _setEventListeners(this,_formEl) {
+  _setEventListeners() {
+    const { inputSelector } = options;
     const inputEls = [...this._formEl.querySelectorAll(inputSelector)];
-    const submitButton = this._formEl.querySelector(options.submitButtonSelector);
+    const submitButton = this._formEl.querySelector(
+      options.submitButtonSelector
+    );
 
     inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
