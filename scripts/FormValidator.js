@@ -46,7 +46,6 @@ class FormValidator {
   }
 
   _setEventListeners() {
-    const { inputSelector } = options;
     const inputEls = [...this._formEl.querySelectorAll(inputSelector)];
     const submitButton = this._formEl.querySelector(
       options.submitButtonSelector
