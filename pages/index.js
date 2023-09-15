@@ -1,6 +1,9 @@
 import FormValidator from "./FormValidator.js";
 
+import Card from "./Card.js";
+
 console.log(FormValidator);
+console.log(Card);
 
 const initialCards = [
   {
@@ -83,6 +86,7 @@ function fillProfileForm() {
 }
 
 function renderCard(cardData, wrapper) {
+  const card = new Card(cardData, "#card-template").generateCard();
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
 }
@@ -181,3 +185,20 @@ cardImageCloseButton.addEventListener("click", () => {
 // Card Data
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+const addFormEl = profileAddModal;
+const editFormEl = profileEditModal;
+
+const config = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__container-button",
+  inactiveButtonClass: "modal__container-button_disabled",
+  inputErrorClass: "modal__input-error",
+  errorClass: "modal__input-error_visible",
+};
+
+const addFormValidator = new FormValidator(config, addFormEl);
+addFormValidator.enableValidation();
+
+const editFormValidator = new FormValidator(config, editFormEl);
+addFormValidator.enableValidation();
