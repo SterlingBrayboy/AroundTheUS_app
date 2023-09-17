@@ -14,10 +14,11 @@ class Card {
     return cardElement;
   }
 
-  _handleLike() {
-      likeButton.classList.toggle("gallery__card-like_active");
-    };
-  }
+  _handleLike = () => {
+    this._element
+      .querySelector(likeButton)
+      .classList.toggle("gallery__card-like_active");
+  };
 
   _handleDelete() {
     cardElement.remove();
@@ -28,15 +29,18 @@ class Card {
   }
 
   _setEventListener() {
-      likeButton.addEventListener("click", this._handleLike);
-      cardTrash.addEventListener("click", () => {
-        cardElement.remove();
-      });
-      cardImageEl.addEventListener("click", () => {
-        img.src = cardData.link;
-        img.alt = cardData.name;
-        cardImageTitle.textContent = cardData.name;
-      });
+    this._element
+      .querySelector(likeButton)
+      .addEventListener("click", this._handleLike);
+
+    cardTrash.addEventListener("click", () => {
+      cardElement.remove();
+    });
+    cardImageEl.addEventListener("click", this._handlePreview);
+    img.src = cardData.link;
+    img.alt = cardData.name;
+    cardImageTitle.textContent = cardData.name;
+  }
 
   generateCard() {
     this._element = this._getTemplate();
