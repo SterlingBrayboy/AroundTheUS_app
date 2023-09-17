@@ -6,6 +6,8 @@ class FormValidator {
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
     this._formEl = formEl;
+    this._submitButton = this._formEl.querySelector(this._submitButtonSelector);
+    this._inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
   }
 
   _showInputError(inputEl) {
@@ -35,9 +37,6 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    constructor(inputEls, submitButton)
-      inputList = this.inputList;
-      submitButton = this._button;
 
     if (this._hasInvalidInput(inputEls)) {
       submitButton.classList.add(this._inactiveButtonClass);
@@ -53,7 +52,7 @@ class FormValidator {
   _setEventListeners() {
     const inputEls = this._inputSelector;
     const submitButton = this._submitButtonSelector;
-  };
+  }
 
     inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {

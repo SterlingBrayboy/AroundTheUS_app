@@ -1,6 +1,6 @@
-import FormValidator from "../../se_project_aroundtheus/components/FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 
-import Card from "../../se_project_aroundtheus/components/card.js";
+import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -107,30 +107,28 @@ function closeModalByEscape(evt) {
 
 // GET CARD FUNCTION & LIKE BUTTON
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".gallery__card-image");
-  const cardTitleEl = cardElement.querySelector(".gallery__card-title");
-  const cardImageTitle = cardImageModal.querySelector(".modal__picture-title");
-  const likeButton = cardElement.querySelector(".gallery__card-like");
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("gallery__card-like_active");
-  });
-  const cardTrash = cardElement.querySelector(".gallery__card-trash");
-  cardTrash.addEventListener("click", () => {
-    cardElement.remove();
-  });
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
-  cardImageEl.addEventListener("click", () => {
-    img.src = cardData.link;
-    img.alt = cardData.name;
-    cardImageTitle.textContent = cardData.name;
-    openModal(cardImageModal);
-  });
-  return cardElement;
-}
+const cardElement = cardTemplate.cloneNode(true);
+const cardImageEl = cardElement.querySelector(".gallery__card-image");
+const cardTitleEl = cardElement.querySelector(".gallery__card-title");
+const cardImageTitle = cardImageModal.querySelector(".modal__picture-title");
+const likeButton = cardElement.querySelector(".gallery__card-like");
+likeButton.addEventListener("click", () => {
+  likeButton.classList.toggle("gallery__card-like_active");
+});
+const cardTrash = cardElement.querySelector(".gallery__card-trash");
+cardTrash.addEventListener("click", () => {
+  cardElement.remove();
+});
+cardImageEl.src = cardData.link;
+cardImageEl.alt = cardData.name;
+cardTitleEl.textContent = cardData.name;
+cardImageEl.addEventListener("click", () => {
+  img.src = cardData.link;
+  img.alt = cardData.name;
+  cardImageTitle.textContent = cardData.name;
+  openModal(cardImageModal);
+});
+return cardElement;
 
 // EVENT HANDLERS
 
@@ -148,6 +146,17 @@ function handlerAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closeModal(profileAddModal);
   profileAddForm.reset();
+
+  _toggleButtonState() {
+    if (this._hasInvalidInput(inputEls)) {
+      submitButton.classList.add(this._inactiveButtonClass);
+      submitButton.disabled = true;
+      return;
+    }
+
+    submitButton.classList.remove(this._inactiveButtonClass);
+    submitButton.disabled = false;
+  };
 }
 
 // EVENT LISTENERS

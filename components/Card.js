@@ -15,26 +15,32 @@ class Card {
   }
 
   _handleLike() {
-    const likeButton = cardElement.querySelector(".gallery__card-like");
-    likeButton.addEventListener("click", () => {
       likeButton.classList.toggle("gallery__card-like_active");
-    });
+    };
   }
 
   _handleDelete() {
-    const cardTrash = cardElement.querySelector(".gallery__card-trash");
-    cardTrash.addEventListener("click", () => {
-      cardElement.remove();
-    });
+    cardElement.remove();
   }
 
-  _handlePreview() {}
+  _handlePreview() {
+    openModal(cardImageModal);
+  }
 
-  _getEventListener() {}
+  _setEventListener() {
+      likeButton.addEventListener("click", this._handleLike);
+      cardTrash.addEventListener("click", () => {
+        cardElement.remove();
+      });
+      cardImageEl.addEventListener("click", () => {
+        img.src = cardData.link;
+        img.alt = cardData.name;
+        cardImageTitle.textContent = cardData.name;
+      });
 
   generateCard() {
     this._element = this._getTemplate();
-    this._getEventListeners();
+    this._setEventListeners();
 
     this._element.querySelector(".gallery__card-image").style.backgroundImage =
       this._link;
