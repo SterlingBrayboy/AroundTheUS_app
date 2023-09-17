@@ -1,9 +1,6 @@
-import FormValidator from "./FormValidator.js";
+import FormValidator from "../../se_project_aroundtheus/components/FormValidator.js";
 
-import Card from "./Card.js";
-
-console.log(FormValidator);
-console.log(Card);
+import Card from "../../se_project_aroundtheus/components/card.js";
 
 const initialCards = [
   {
