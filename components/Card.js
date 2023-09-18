@@ -20,9 +20,9 @@ class Card {
       .classList.toggle("gallery__card-like_active");
   };
 
-  _handleDelete() {
-    cardElement.remove();
-  }
+  _handleDelete = () => {
+    this._element.remove();
+  };
 
   _handlePreview() {
     openModal(cardImageModal);
@@ -33,9 +33,7 @@ class Card {
       .querySelector(likeButton)
       .addEventListener("click", this._handleLike);
 
-    cardTrash.addEventListener("click", () => {
-      cardElement.remove();
-    });
+    cardTrash.addEventListener("click", this._handleDelete);
     cardImageEl.addEventListener("click", this._handlePreview);
     img.src = cardData.link;
     img.alt = cardData.name;
