@@ -179,5 +179,5 @@ const config = {
 const addFormValidator = new FormValidator(config, addFormEl);
 addFormValidator.enableValidation();
 
-const editFormValidator = new FormValidator(config, editFormEl);
-addFormValidator.enableValidation();
+// const editFormValidator = new FormValidator(config, editFormEl);
+// addFormValidator.enableValidation();
