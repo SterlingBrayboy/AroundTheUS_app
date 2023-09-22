@@ -83,8 +83,8 @@ function fillProfileForm() {
 }
 
 function renderCard(cardData, wrapper) {
-  const Card = new Card(cardData, "#card-template").generateCard();
-  const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#card-template").generateCard();
+  const cardElement = cardTemplate.cloneNode(true);
   wrapper.prepend(cardElement);
 }
 

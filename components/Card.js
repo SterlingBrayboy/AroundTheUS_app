@@ -9,15 +9,13 @@ class Card {
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardSelector)
-      .content.querySelector.firstElementChild.cloneNode(true);
+      .content.firstElementChild.cloneNode(true);
 
     return cardElement;
   }
 
   _handleLike = () => {
-    this._element
-      .querySelector(likeButton)
-      .classList.toggle("gallery__card-like_active");
+    this._likeButton.classList.toggle("gallery__card-like_active");
   };
 
   _handleDelete = () => {
@@ -28,26 +26,34 @@ class Card {
     openModal(cardImageModal);
   }
 
-  _setEventListener() {
-    this._element
-      .querySelector(likeButton)
-      .addEventListener("click", this._handleLike);
+  _setEventListeners() {
+    this._likeButton.addEventListener("click", this._handleLike);
 
-    cardTrash.addEventListener("click", this._handleDelete);
-    cardImageEl.addEventListener("click", this._handlePreview);
-    img.src = cardData.link;
-    img.alt = cardData.name;
-    cardImageTitle.textContent = cardData.name;
+    this._cardTrash.addEventListener("click", this._handleDelete);
+    this._cardImageEl.addEventListener("click", this._handlePreview);
+    this._cardImageEl.src = this._link;
+    this._cardImageEl.alt = this._name;
+    this._cardImageTitle.textContent = this._name;
   }
 
   generateCard() {
+    debugger;
+    // select the like button, save to this
     this._element = this._getTemplate();
-    this._setEventListeners();
+    this._cardImageModal = document.querySelector("#picture-modal");
+    this._likeButton = this._element.querySelector(".gallery__card-like");
+    this._cardTrash = this._element.querySelector(".gallery__card-trash");
+    this._cardImageEl = this._element.querySelector(".gallery__card-image");
+    this._cardImageTitle = this._cardImageModal.querySelector(
+      ".modal__picture-title"
+    );
 
-    this._element.querySelector(".gallery__card-image").style.backgroundImage =
-      this._link;
-    this._element.querySelector(".gallery__card-title").textContent =
-      this._name;
+    // this._setEventListeners();
+
+    // this._element.querySelector(".gallery__card-image").style.backgroundImage =
+    //   this._link;
+    // this._element.querySelector(".gallery__card-title").textContent =
+    //   this._name;
   }
 }
 
