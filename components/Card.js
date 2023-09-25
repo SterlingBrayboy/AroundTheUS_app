@@ -33,27 +33,24 @@ class Card {
     this._cardImageEl.addEventListener("click", this._handlePreview);
     this._cardImageEl.src = this._link;
     this._cardImageEl.alt = this._name;
-    this._cardImageTitle.textContent = this._name;
   }
 
   generateCard() {
     debugger;
     // select the like button, save to this
     this._element = this._getTemplate();
-    this._cardImageModal = document.querySelector("#picture-modal");
     this._likeButton = this._element.querySelector(".gallery__card-like");
     this._cardTrash = this._element.querySelector(".gallery__card-trash");
     this._cardImageEl = this._element.querySelector(".gallery__card-image");
-    this._cardImageTitle = this._cardImageModal.querySelector(
-      ".modal__picture-title"
-    );
 
-    // this._setEventListeners();
+    this._setEventListeners();
 
-    // this._element.querySelector(".gallery__card-image").style.backgroundImage =
-    //   this._link;
-    // this._element.querySelector(".gallery__card-title").textContent =
-    //   this._name;
+    this._element.querySelector(".gallery__card-image").style.backgroundImage =
+      this._link;
+    this._element.querySelector(".gallery__card-title").textContent =
+      this._name;
+
+    return this._element;
   }
 }
 
