@@ -1,7 +1,10 @@
+import { openModal } from "../pages/index.js";
+
 class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
     this._link = data.link;
+    this._handleImageClick = handleImageClick;
 
     this._cardSelector = cardSelector;
   }
@@ -23,15 +26,14 @@ class Card {
   };
 
   _handlePreview = () => {
-    this._element.classList.add("modal_opened");
+    const cardImageModal = document.querySelector("#picture-modal");
+    openModal(cardImageModal);
   };
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLike);
     this._cardTrash.addEventListener("click", this._handleDelete);
     this._cardImageEl.addEventListener("click", this._handlePreview);
-    // this._cardImageEl.src = this._link;
-    // this._cardImageEl.alt = this._name;
   }
 
   generateCard() {

@@ -65,13 +65,13 @@ const img = cardImageModal.querySelector(".modal__picture-src");
 
 // FUNCTIONS
 
-function closeModal(modal) {
+export function closeModal(modal) {
   modal.classList.remove("modal_opened");
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
   document.removeEventListener("keydown", closeModalByEscape);
 }
 
-function openModal(modal) {
+export function openModal(modal) {
   modal.classList.add("modal_opened");
   modal.addEventListener("mousedown", closeModalOnRemoteClick);
   document.addEventListener("keydown", closeModalByEscape);
@@ -87,6 +87,13 @@ function renderCard(cardData, wrapper) {
   const cardElement = cardTemplate.cloneNode(true);
   wrapper.prepend(card);
 }
+
+// function handleImageClick() {
+//   const cardImageEl = document.querySelectorAll(".gallery__card-image");
+//   const cardTitleEl = document.querySelectorAll(".gallery__card-title");
+//   const cardImageTitle = document.querySelectorAll(".modal__picture-title");
+//   openModal(cardImageModal);
+// }
 
 // Mouse Click Key Function To Close Modals
 
@@ -108,9 +115,6 @@ function closeModalByEscape(evt) {
 // GET CARD FUNCTION & LIKE BUTTON
 
 // const cardElement = cardTemplate.cloneNode(true);
-// const cardImageEl = cardElement.querySelector(".gallery__card-image");
-// const cardTitleEl = cardElement.querySelector(".gallery__card-title");
-// const cardImageTitle = cardImageModal.querySelector(".modal__picture-title");
 
 // EVENT HANDLERS
 
