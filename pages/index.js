@@ -85,7 +85,7 @@ function fillProfileForm() {
 function renderCard(cardData, wrapper) {
   const card = new Card(cardData, "#card-template").generateCard();
   const cardElement = cardTemplate.cloneNode(true);
-  wrapper.prepend(cardElement);
+  wrapper.prepend(card);
 }
 
 // Mouse Click Key Function To Close Modals
@@ -107,10 +107,10 @@ function closeModalByEscape(evt) {
 
 // GET CARD FUNCTION & LIKE BUTTON
 
-const cardElement = cardTemplate.cloneNode(true);
-const cardImageEl = cardElement.querySelector(".gallery__card-image");
-const cardTitleEl = cardElement.querySelector(".gallery__card-title");
-const cardImageTitle = cardImageModal.querySelector(".modal__picture-title");
+// const cardElement = cardTemplate.cloneNode(true);
+// const cardImageEl = cardElement.querySelector(".gallery__card-image");
+// const cardTitleEl = cardElement.querySelector(".gallery__card-title");
+// const cardImageTitle = cardImageModal.querySelector(".modal__picture-title");
 
 // EVENT HANDLERS
 
@@ -179,5 +179,5 @@ const config = {
 const addFormValidator = new FormValidator(config, addFormEl);
 addFormValidator.enableValidation();
 
-// const editFormValidator = new FormValidator(config, editFormEl);
-// addFormValidator.enableValidation();
+const editFormValidator = new FormValidator(config, editFormEl);
+addFormValidator.enableValidation();

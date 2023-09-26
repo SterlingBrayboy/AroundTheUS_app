@@ -22,17 +22,16 @@ class Card {
     this._element.remove();
   };
 
-  _handlePreview() {
-    openModal(cardImageModal);
-  }
+  _handlePreview = () => {
+    this._element.classList.add("modal_opened");
+  };
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLike);
-
     this._cardTrash.addEventListener("click", this._handleDelete);
     this._cardImageEl.addEventListener("click", this._handlePreview);
-    this._cardImageEl.src = this._link;
-    this._cardImageEl.alt = this._name;
+    // this._cardImageEl.src = this._link;
+    // this._cardImageEl.alt = this._name;
   }
 
   generateCard() {
@@ -45,8 +44,7 @@ class Card {
 
     this._setEventListeners();
 
-    this._element.querySelector(".gallery__card-image").style.backgroundImage =
-      this._link;
+    this._element.querySelector(".gallery__card-image").src = this._link;
     this._element.querySelector(".gallery__card-title").textContent =
       this._name;
 
