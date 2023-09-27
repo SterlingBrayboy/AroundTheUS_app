@@ -134,6 +134,7 @@ function handlerAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closeModal(profileAddModal);
   profileAddForm.reset();
+  addFormValidator.toggleButtonState();
 }
 
 // EVENT LISTENERS
