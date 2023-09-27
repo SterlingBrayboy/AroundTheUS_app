@@ -65,13 +65,13 @@ const img = cardImageModal.querySelector(".modal__picture-src");
 
 // FUNCTIONS
 
-export function closeModal(modal) {
+function closeModal(modal) {
   modal.classList.remove("modal_opened");
   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
   document.removeEventListener("keydown", closeModalByEscape);
 }
 
-export function openModal(modal) {
+function openModal(modal) {
   modal.classList.add("modal_opened");
   modal.addEventListener("mousedown", closeModalOnRemoteClick);
   document.addEventListener("keydown", closeModalByEscape);
@@ -83,17 +83,25 @@ function fillProfileForm() {
 }
 
 function renderCard(cardData, wrapper) {
-  const card = new Card(cardData, "#card-template").generateCard();
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick
+  ).generateCard();
   const cardElement = cardTemplate.cloneNode(true);
   wrapper.prepend(card);
 }
 
-// function handleImageClick() {
-//   const cardImageEl = document.querySelectorAll(".gallery__card-image");
-//   const cardTitleEl = document.querySelectorAll(".gallery__card-title");
-//   const cardImageTitle = document.querySelectorAll(".modal__picture-title");
-//   openModal(cardImageModal);
-// }
+function handleImageClick(cardData) {
+  const cardImageEl = document.querySelectorAll(".gallery__card-image");
+  const cardTitleEl = document.querySelectorAll(".gallery__card-title");
+  const cardImageTitle = document.querySelectorAll(".modal__picture-title");
+  cardImageEl.src = cardData.link;
+  cardImageEl.alt = cardData.name;
+  cardTitleEl.textContent = cardData.name;
+  cardImageTitle.textContent = cardData.name;
+  openModal(cardImageModal);
+}
 
 // Mouse Click Key Function To Close Modals
 
@@ -111,10 +119,6 @@ function closeModalByEscape(evt) {
     closeModal(openedModal);
   }
 }
-
-// GET CARD FUNCTION & LIKE BUTTON
-
-// const cardElement = cardTemplate.cloneNode(true);
 
 // EVENT HANDLERS
 
@@ -184,4 +188,4 @@ const addFormValidator = new FormValidator(config, addFormEl);
 addFormValidator.enableValidation();
 
 const editFormValidator = new FormValidator(config, editFormEl);
-addFormValidator.enableValidation();
+editFormValidator.enableValidation();

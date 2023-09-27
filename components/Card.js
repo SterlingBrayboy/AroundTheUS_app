@@ -1,4 +1,4 @@
-import { openModal } from "../pages/index.js";
+// import { openModal } from "../pages/index.js";
 
 class Card {
   constructor(data, cardSelector, handleImageClick) {
@@ -25,19 +25,21 @@ class Card {
     this._element.remove();
   };
 
-  _handlePreview = () => {
-    const cardImageModal = document.querySelector("#picture-modal");
-    openModal(cardImageModal);
-  };
+  // _handlePreview = () => {
+  //   const cardImageModal = document.querySelector("#picture-modal");
+  //   openModal(cardImageModal);
+  // };
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLike);
     this._cardTrash.addEventListener("click", this._handleDelete);
-    this._cardImageEl.addEventListener("click", this._handlePreview);
+    this._cardImageEl.addEventListener("click", () => {
+      this._handleImageClick({ name: this._name, link: this._link });
+    });
   }
 
   generateCard() {
-    debugger;
+    // debugger;
     // select the like button, save to this
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector(".gallery__card-like");
