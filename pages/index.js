@@ -88,7 +88,6 @@ function renderCard(cardData, wrapper) {
     "#card-template",
     handleImageClick
   ).generateCard();
-  const cardElement = cardTemplate.cloneNode(true);
   wrapper.prepend(card);
 }
 
@@ -136,8 +135,6 @@ function handlerAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closeModal(profileAddModal);
   profileAddForm.reset();
-
-  addFormValidator.toggleButtonState();
 }
 
 // EVENT LISTENERS
