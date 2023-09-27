@@ -25,11 +25,6 @@ class Card {
     this._element.remove();
   };
 
-  // _handlePreview = () => {
-  //   const cardImageModal = document.querySelector("#picture-modal");
-  //   openModal(cardImageModal);
-  // };
-
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLike);
     this._cardTrash.addEventListener("click", this._handleDelete);

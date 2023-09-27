@@ -93,9 +93,9 @@ function renderCard(cardData, wrapper) {
 }
 
 function handleImageClick(cardData) {
-  const cardImageEl = document.querySelectorAll(".gallery__card-image");
-  const cardTitleEl = document.querySelectorAll(".gallery__card-title");
-  const cardImageTitle = document.querySelectorAll(".modal__picture-title");
+  const cardImageEl = document.querySelector(".modal__picture-src");
+  const cardTitleEl = document.querySelector(".gallery__card-title");
+  const cardImageTitle = document.querySelector(".modal__picture-title");
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
