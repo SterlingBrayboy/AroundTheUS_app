@@ -34,7 +34,6 @@ class Card {
   }
 
   generateCard() {
-    // debugger;
     // select the like button, save to this
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector(".gallery__card-like");
@@ -44,6 +43,9 @@ class Card {
     this._setEventListeners();
 
     this._element.querySelector(".gallery__card-image").src = this._link;
+    this._element.querySelector(
+      ".gallery__card-image"
+    ).alt = `Photo of ${this._name}`;
     this._element.querySelector(".gallery__card-title").textContent =
       this._name;
 

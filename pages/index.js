@@ -97,7 +97,6 @@ function handleImageClick(cardData) {
   const cardImageTitle = document.querySelector(".modal__picture-title");
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
   cardImageTitle.textContent = cardData.name;
   openModal(cardImageModal);
 }
