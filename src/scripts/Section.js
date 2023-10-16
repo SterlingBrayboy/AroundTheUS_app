@@ -1,7 +1,15 @@
 class Section {
-  constuctor({ items, renderer }, cardElements) {}
+  constructor({ items, renderer }, cardElement) {
+    this._items = items;
+    this._renderer = renderer;
+    this._cardElement = cardElement;
+  }
 
-  renderItems()
+  renderItems() {
+    this._items.forEach((item) => {});
+  }
 
-  addItem()
+  addItem(item) {
+    const item = document.querySelector(cardElements).content;
+  }
 }

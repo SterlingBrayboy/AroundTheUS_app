@@ -5,14 +5,26 @@ class PopupWithForm extends Popup {
     super({ popupSelector });
 
     this._popupForm = this.popupElement.querySelector("modal__form");
-    this._handleFormSubmit = handleFormSubmitSubmit;
+    this._handleFormSubmit = handleFormSubmit;
   }
-
-  _getInputValues() {}
 
   close() {
     this._popupForm.reset();
     super.close();
+  }
+
+  setEventListeners() {
+    this._profileEditForm.addEventListener("submit", handlerProfileEditSubmit);
+    this._profileAddModal.addEventListener("submit", handlerAddCardSubmit);
+    this._cardImageCloseButton.addEventListener("click", this._close());
+  }
+
+  _getInputValues() {
+    this._profileEditForm = profileEditModal.querySelector(".modal__form");
+    this._profileAddModal = profileAddModal.querySelector("#add-card-form");
+    this._cardImageCloseButton = cardImageModal.querySelector(
+      "#picture__modal-button"
+    );
   }
 }
 
