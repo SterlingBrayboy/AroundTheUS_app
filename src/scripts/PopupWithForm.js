@@ -14,8 +14,8 @@ class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    this._profileEditForm.addEventListener("submit", handlerProfileEditSubmit);
-    this._profileAddModal.addEventListener("submit", handlerAddCardSubmit);
+    this._profileEditForm.addEventListener("submit", this._handleFormSubmit);
+    this._profileAddModal.addEventListener("submit", this._handleFormSubmit);
     this._cardImageCloseButton.addEventListener("click", this._close());
   }
 
