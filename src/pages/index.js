@@ -4,6 +4,10 @@ import Card from "../components/Card.js";
 
 import "../pages/index.css";
 
+import Section from "../scripts/Section.js";
+
+import UserInfo from "../scripts/UserInfo.js";
+
 import { initialCards, config } from "../utils/utils.js";
 
 // const initialCards = [
