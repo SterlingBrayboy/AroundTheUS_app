@@ -2,11 +2,11 @@ import FormValidator from "../components/FormValidator.js";
 
 import Card from "../components/Card.js";
 
-import "../pages/index.css";
+import "./index.css";
 
-import Section from "../scripts/Section.js";
+import { Section } from "../components/Section.js";
 
-import UserInfo from "../scripts/UserInfo.js";
+import { UserInfo } from "../components/UserInfo.js";
 
 import { initialCards, config } from "../utils/utils.js";
 
