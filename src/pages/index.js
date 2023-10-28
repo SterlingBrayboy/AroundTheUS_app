@@ -43,9 +43,9 @@ editFormValidator.enableValidation();
 // SECTION
 
 const section = new Section({
-  data: items,
-  renderer: (item) => {
-    this._renderer(item);
+  data: initialCards,
+  renderer: (cardData) => {
+    renderCard(cardData);
   },
 });
 
