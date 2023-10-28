@@ -4,6 +4,8 @@ import Card from "../components/Card.js";
 
 import "./index.css";
 
+import PopupWithForm from "../components/PopupWithForm.js";
+
 import { Section } from "../components/Section.js";
 
 import { UserInfo } from "../components/UserInfo.js";
@@ -36,6 +38,9 @@ import { initialCards, config } from "../utils/utils.js";
 //     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
 //   },
 // ];
+
+const editProfilePopup = new PopupWithForm("#profile__edit-modal", () => {});
+editProfilePopup.setEventListeners();
 
 // VARIABLES & ELEMENTS
 
