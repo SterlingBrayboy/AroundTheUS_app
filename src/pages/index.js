@@ -42,12 +42,18 @@ editFormValidator.enableValidation();
 
 // SECTION
 
-const section = new Section({
-  items: initialCards,
-  renderer: (element) => {
-    section.renderItems();
-  },
-});
+// const section = new Section({
+//   items: initialCards,
+//   renderer: (element) => {
+//     section.renderItems();
+//   },
+// });
+
+const cardListEl = document.querySelector(".gallery__cards");
+
+const section = new Section({ items: initialCards, renderer: cardListEl });
+
+section.renderItems();
 
 // initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
@@ -89,7 +95,6 @@ const profileAddButton = document.querySelector(".profile__add-button");
 const modalImageCloseButton = cardImageModal.querySelector(
   "#picture__modal-button"
 );
-const cardListEl = document.querySelector(".gallery__cards");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const img = cardImageModal.querySelector(".modal__picture-src");
