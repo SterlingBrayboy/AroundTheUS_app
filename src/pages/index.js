@@ -1,52 +1,70 @@
+import Popup from "../components/Popup.js";
+
+import PopupWithForm from "../components/PopupWithForm.js";
+
 import FormValidator from "../components/FormValidator.js";
+
+import UserInfo from "../components/UserInfo.js";
+
+import Section from "../components/Section.js";
 
 import Card from "../components/Card.js";
 
 import "./index.css";
 
-import PopupWithForm from "../components/PopupWithForm.js";
-
-import { Section } from "../components/Section.js";
-
-import { UserInfo } from "../components/UserInfo.js";
-
 import { initialCards, config } from "../utils/utils.js";
 
-// const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-//   },
-//   {
-//     name: "Lake Louise",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-//   },
-//   {
-//     name: "Bald Mountains",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-//   },
-//   {
-//     name: "Latemar",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-//   },
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-//   },
-//   {
-//     name: "Lago di Braies",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-//   },
-// ];
+// POPUP
 
-const editProfilePopup = new PopupWithForm("#profile__edit-modal", () => {});
-editProfilePopup.setEventListeners();
+const PopupParent = new Popup("#profile__add-modal", () => {});
+
+// POPUP WITH FORM
+
+const PopupChild = new PopupWithForm("#profile__edit-modal", () => {});
+
+// FORM VALIDATOR
+
+const profileEditModal = document.querySelector("#profile__edit-modal");
+const profileAddModal = document.querySelector("#profile__add-modal");
+
+const addFormEl = profileAddModal;
+const editFormEl = profileEditModal;
+
+const addFormValidator = new FormValidator(config, addFormEl);
+addFormValidator.enableValidation();
+
+const editFormValidator = new FormValidator(config, editFormEl);
+editFormValidator.enableValidation();
+
+// USER INFO
+
+// const userinfo = new UserInfo(nameSelector, jobSelector);
+
+// SECTION
+
+const section = new Section({
+  data: items,
+  renderer: (item) => {
+    this._renderer(item);
+  },
+});
+
+// initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+// CARD
+
+function renderCard(cardData, wrapper) {
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick
+  ).generateCard();
+  wrapper.prepend(card);
+}
 
 // VARIABLES & ELEMENTS
 
 const profileEditButton = document.querySelector("#profile__edit-button");
-const profileEditModal = document.querySelector("#profile__edit-modal");
-const profileAddModal = document.querySelector("#profile__add-modal");
 const cardImageModal = document.querySelector("#picture-modal");
 const profileEditCloseButton = profileEditModal.querySelector(
   "#profile-modal-close"
@@ -93,15 +111,6 @@ function openModal(modal) {
 function fillProfileForm() {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-}
-
-function renderCard(cardData, wrapper) {
-  const card = new Card(
-    cardData,
-    "#card-template",
-    handleImageClick
-  ).generateCard();
-  wrapper.prepend(card);
 }
 
 function handleImageClick(cardData) {
@@ -178,24 +187,3 @@ profileAddModal.addEventListener("submit", handlerAddCardSubmit);
 cardImageCloseButton.addEventListener("click", () => {
   closeModal(cardImageModal);
 });
-
-// Card Data
-
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-
-const addFormEl = profileAddModal;
-const editFormEl = profileEditModal;
-
-// const config = {
-//   inputSelector: ".modal__input",
-//   submitButtonSelector: ".modal__container-button",
-//   inactiveButtonClass: "modal__container-button_disabled",
-//   inputErrorClass: "modal__input-error",
-//   errorClass: "modal__input-error_visible",
-// };
-
-const addFormValidator = new FormValidator(config, addFormEl);
-addFormValidator.enableValidation();
-
-const editFormValidator = new FormValidator(config, editFormEl);
-editFormValidator.enableValidation();

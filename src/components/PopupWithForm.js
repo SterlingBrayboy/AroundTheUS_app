@@ -17,7 +17,7 @@ class PopupWithForm extends Popup {
 
   setEventListeners() {
     this._popupElement.addEventListener("submit", this._handleFormSubmit);
-    this._closeButton.addEventListener("click", close());
+    // this._closeButton.addEventListener("click", close());
   }
 
   _getInputValues() {
@@ -30,5 +30,3 @@ class PopupWithForm extends Popup {
 }
 
 export default PopupWithForm;
-
-const newCardPopup = new PopupWithForm("#profile__add-modal", () => {});

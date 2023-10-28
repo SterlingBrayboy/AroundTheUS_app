@@ -1,5 +1,3 @@
-// import { openModal } from "../pages/index.js";
-
 class Card {
   constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
