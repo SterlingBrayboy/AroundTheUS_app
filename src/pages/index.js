@@ -16,11 +16,11 @@ import { initialCards, config } from "../utils/utils.js";
 
 // POPUP
 
-const PopupParent = new Popup("#profile__add-modal", () => {});
+// const popup = new Popup({ popupSelector });
 
 // POPUP WITH FORM
 
-const PopupChild = new PopupWithForm("#profile__edit-modal", () => {});
+// const popupwithform = new PopupWithForm(popupSelector, handleFormSubmit);
 
 // FORM VALIDATOR
 
@@ -42,16 +42,12 @@ editFormValidator.enableValidation();
 
 // SECTION
 
-// const section = new Section({
-//   items: initialCards,
-//   renderer: (element) => {
-//     section.renderItems();
-//   },
-// });
+// const cardListEl = document.querySelector(".gallery__cards");
 
-const cardListEl = document.querySelector(".gallery__cards");
-
-const section = new Section({ items: initialCards, renderer: cardListEl });
+const section = new Section({
+  items: initialCards,
+  renderer: () => {},
+});
 
 section.renderItems();
 
