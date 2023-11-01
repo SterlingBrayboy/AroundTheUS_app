@@ -1,5 +1,3 @@
-import Popup from "../components/Popup.js";
-
 import PopupWithForm from "../components/PopupWithForm.js";
 
 import PopupWithImage from "../components/PopupWIthImage.js";
@@ -50,10 +48,6 @@ function createCard(cardData) {
   ).generateCard();
   return card;
 }
-
-// POPUP
-
-// const popup = new Popup({ popupSelector });
 
 // FORM VALIDATOR
 

@@ -22,6 +22,7 @@ class Popup {
 
   setEventListeners() {
     // this._popupElement.querySelectorAll("modal_opened");
+    const openedModal = document.querySelector("modal_opened");
 
     if (evt.target === evt.currentTarget) {
       close(evt.target);
