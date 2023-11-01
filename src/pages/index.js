@@ -95,6 +95,10 @@ function handlerAddCardSubmit(e) {
 
 const popupWithForm = new PopupWithForm(addCardSelector, handlerAddCardSubmit);
 
+// popupWithForm.open();
+
+// popupWithForm.close();
+
 // USER INFO
 
 // const userinfo = new UserInfo(nameSelector, jobSelector);
@@ -148,13 +152,6 @@ function fillProfileForm() {
 }
 
 function handleImageClick(cardData) {
-  // const cardImageEl = document.querySelector(".modal__picture-src");
-  // const cardTitleEl = document.querySelector(".gallery__card-title");
-  // const cardImageTitle = document.querySelector(".modal__picture-title");
-  // cardImageEl.src = cardData.link;
-  // cardImageEl.alt = cardData.name;
-  // cardImageTitle.textContent = cardData.name;
-  // openModal(cardImageModal);
   popupWithImage.open(cardData);
 }
 
@@ -162,7 +159,7 @@ function handleImageClick(cardData) {
 
 function closeModalOnRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
-    closeModal(evt.target);
+    popupWithImage.close(evt.target);
   }
 }
 
@@ -208,5 +205,5 @@ const modal = document.querySelector(".modal");
 // Image Modal
 
 cardImageCloseButton.addEventListener("click", () => {
-  closeModal(cardImageModal);
+  popupWithImage.close();
 });

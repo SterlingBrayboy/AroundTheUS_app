@@ -5,26 +5,26 @@ class Popup {
 
   open() {
     this._popupElement.classList.add("modal_opened");
-    document.addEventListener("keyup", this._handleEscClose);
+    // document.addEventListener("keyup", this._handleEscClose);
   }
 
   close() {
     this._popupElement.classList.remove("modal_opened");
-    document.removeEventListener("keyup", this._handleEscClose);
+    // document.removeEventListener("keyup", this._handleEscClose);
   }
 
-  _handleEscClose() {
+  _handleEscClose(evt) {
     if (evt.key === "Escape") {
-      const openedModal = document.querySelector(".modal_opened");
+      const openedModal = document.querySelector("modal_opened");
       close(openedModal);
     }
   }
 
   setEventListeners() {
-    this._popupElement.querySelectorAll("modal_opened");
+    // this._popupElement.querySelectorAll("modal_opened");
 
     if (evt.target === evt.currentTarget) {
-      closeModal(evt.target);
+      close(evt.target);
     }
   }
 }

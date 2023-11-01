@@ -4,9 +4,9 @@ class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
 
-    this._popupForm = this._popupElement.querySelector("modal__form");
-    this._popupAddForm = this._popupElement.querySelector("#add-card-form");
-    this._closeButton = document.querySelector("#picture__modal-button");
+    this._form = this._popupElement.querySelector("modal");
+    this._addForm = this._popupElement.querySelector("#add-card-form");
+    // this._closeButton = document.querySelector("#picture__modal-button");
     this._handleFormSubmit = handleFormSubmit;
   }
 
