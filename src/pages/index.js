@@ -77,15 +77,19 @@ function handlerAddCardSubmit(e) {
   e.preventDefault();
   const name = addCardTitle.value;
   const link = addImageUrl.value;
-  renderCard({ name, link }, cardListEl);
+  renderCard({ name, link });
   close(profileAddModal);
   profileAddForm.reset();
   addFormValidator.toggleButtonState();
 }
 
+// function handleFormClick(addCardSelector) {
+//   popupWithForm.open(addCardSelector);
+// }
+
 const popupWithForm = new PopupWithForm(addCardSelector, handlerAddCardSubmit);
 
-popupWithForm.open();
+// popupWithForm.open();
 
 // USER INFO
 
@@ -112,7 +116,7 @@ const profileDescriptionInput = document.querySelector(
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileAddForm = profileAddModal.querySelector("#add-card-form");
-const profileAddButton = document.querySelector(".profile__add-button");
+// const profileAddButton = document.querySelector(".profile__add-button");
 const modalImageCloseButton = cardImageModal.querySelector(
   "#picture__modal-button"
 );

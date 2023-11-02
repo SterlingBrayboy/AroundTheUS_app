@@ -4,14 +4,9 @@ class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
 
-    this._form = this._popupElement.querySelector("modal");
-    this._addForm = this._popupElement.querySelector("#add-card-form");
+    this._form = this._popupElement.querySelector(".modal__form");
     // this._closeButton = document.querySelector("#picture__modal-button");
     this._handleFormSubmit = handleFormSubmit;
-  }
-
-  open() {
-    this._popupElement.classList.add(".modal");
   }
 
   close() {
@@ -20,8 +15,11 @@ class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
+    const profileAddButton = document.querySelector(".profile__add-button");
+    profileAddButton.addEventListener("click", () => {
+      this._form.open();
+    });
     this._popupElement.addEventListener("submit", this._handleFormSubmit);
-    // this._closeButton.addEventListener("click", close());
   }
 
   _getInputValues() {
