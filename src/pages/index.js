@@ -70,6 +70,7 @@ const popupWithImage = new PopupWithImage("#picture-modal");
 // POPUP WITH FORM
 
 const addCardSelector = "#profile__add-modal";
+const editCardSelector = "#profile__edit-modal";
 const addCardTitle = document.querySelector("#modal-title-input");
 const addImageUrl = document.querySelector("#modal-image-url");
 
@@ -87,7 +88,21 @@ function handlerAddCardSubmit(e) {
 //   popupWithForm.open(addCardSelector);
 // }
 
-const popupWithForm = new PopupWithForm(addCardSelector, handlerAddCardSubmit);
+function newPlace() {
+  const popupWithForm = new PopupWithForm(
+    addCardSelector,
+    handlerAddCardSubmit
+  );
+  popupWithForm.open();
+}
+
+function editInfo() {
+  const popupWithForm = new PopupWithForm(
+    editCardSelector,
+    handlerProfileEditSubmit()
+  );
+  popupWithForm.open();
+}
 
 // popupWithForm.open();
 
@@ -98,6 +113,7 @@ const popupWithForm = new PopupWithForm(addCardSelector, handlerAddCardSubmit);
 // VARIABLES & ELEMENTS
 
 const profileEditButton = document.querySelector("#profile__edit-button");
+const profileAddButton = document.querySelector(".profile__add-button");
 const cardImageModal = document.querySelector("#picture-modal");
 const profileEditCloseButton = profileEditModal.querySelector(
   "#profile-modal-close"
@@ -160,7 +176,7 @@ function closeModalOnRemoteClick(evt) {
 // function closeModalByEscape(evt) {
 //   if (evt.key === "Escape") {
 //     const openedModal = document.querySelector(".modal_opened");
-//     closeModal(openedModal);
+//     popupWithImage.close();
 //   }
 // }
 
@@ -170,27 +186,27 @@ profileEditForm.addEventListener("submit", handlerProfileEditSubmit);
 profileAddModal.addEventListener("submit", handlerAddCardSubmit);
 
 function handlerProfileEditSubmit(e) {
-  e.preventDefault();
+  // e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeModal(profileEditModal);
+  profileEditModal.classList.remove("modal_opened");
 }
 
 // EVENT LISTENERS
 
 // Modal Form
 
-// profileEditButton.addEventListener("click", () => {
-//   fillProfileForm();
-//   openModal(profileEditModal);
-// });
-// profileEditCloseButton.addEventListener("click", () =>
-//   closeModal(profileEditModal)
-// );
-// profileAddButton.addEventListener("click", () => openModal(profileAddModal));
-// profileAddCloseButton.addEventListener("click", () =>
-//   closeModal(profileAddModal)
-// );
+const openedModal = document.querySelector(".modal_opened");
+
+profileEditButton.addEventListener("click", () => {
+  // fillProfileForm();
+  editInfo();
+});
+profileEditCloseButton.addEventListener("click", () => close(profileEditModal));
+profileAddButton.addEventListener("click", () => newPlace());
+profileAddCloseButton.addEventListener("click", () => {
+  profileAddModal.classList.remove("modal_opened");
+});
 
 const modal = document.querySelector(".modal");
 

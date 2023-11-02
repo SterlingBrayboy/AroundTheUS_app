@@ -10,15 +10,11 @@ class PopupWithForm extends Popup {
   }
 
   close() {
-    this._popupForm.reset();
+    // this._popupForm.reset();
     super.close();
   }
 
   setEventListeners() {
-    const profileAddButton = document.querySelector(".profile__add-button");
-    profileAddButton.addEventListener("click", () => {
-      this._form.open();
-    });
     this._popupElement.addEventListener("submit", this._handleFormSubmit);
   }
 
