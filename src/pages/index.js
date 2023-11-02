@@ -67,10 +67,6 @@ editFormValidator.enableValidation();
 
 const popupWithImage = new PopupWithImage("#picture-modal");
 
-popupWithImage.open();
-
-popupWithImage.close();
-
 // POPUP WITH FORM
 
 const addCardSelector = "#profile__add-modal";
@@ -89,9 +85,7 @@ function handlerAddCardSubmit(e) {
 
 const popupWithForm = new PopupWithForm(addCardSelector, handlerAddCardSubmit);
 
-// popupWithForm.open();
-
-// popupWithForm.close();
+popupWithForm.open();
 
 // USER INFO
 
@@ -140,10 +134,10 @@ const img = cardImageModal.querySelector(".modal__picture-src");
 //   document.addEventListener("keydown", closeModalByEscape);
 // }
 
-function fillProfileForm() {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-}
+// function fillProfileForm() {
+//   profileTitleInput.value = profileTitle.textContent;
+//   profileDescriptionInput.value = profileDescription.textContent;
+// }
 
 function handleImageClick(cardData) {
   popupWithImage.open(cardData);

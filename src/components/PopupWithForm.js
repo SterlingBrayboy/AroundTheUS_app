@@ -10,6 +10,10 @@ class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
   }
 
+  open() {
+    this._popupElement.classList.add(".modal");
+  }
+
   close() {
     this._popupForm.reset();
     super.close();
@@ -21,6 +25,8 @@ class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
+    profileTitleInput.value = profileTitle.textContent;
+    profileDescriptionInput.value = profileDescription.textContent;
     // profileEditForm = profileEditModal.querySelector("modal__form");
     // profileAddModal = profileAddModal.querySelector("#add-card-form");
     // cardImageCloseButton = cardImageModal.querySelector(
