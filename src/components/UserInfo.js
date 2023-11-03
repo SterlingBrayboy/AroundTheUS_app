@@ -5,16 +5,25 @@ class UserInfo {
   }
 
   getUserInfo() {
-    this._name.textContent = profileTitleInput.value;
-    this._job.textContent = profileDescriptionInput.value;
+    const profileTitleInput = document.querySelector("#profile-name-input");
+    const profileTitle = document.querySelector(".profile__title");
+    const profileDescription = document.querySelector(".profile__description");
+    const profileDescriptionInput = document.querySelector(
+      "#profile-description-input"
+    );
+    profileTitleInput.value = profileTitle.textContent;
+    profileDescriptionInput.value = profileDescription.textContent;
   }
 
   setUserInfo() {
-    nameSelector = document.querySelector(".profile__title");
-    jobSelector = document.querySelector(".profile__description");
-
-    this._name.textContent = profileTitleInput.value;
-    this._job.textContent = profileDescriptionInput.value;
+    const profileTitle = document.querySelector(".profile__title");
+    const profileTitleInput = document.querySelector("#profile-name-input");
+    const profileDescription = document.querySelector(".profile__description");
+    const profileDescriptionInput = document.querySelector(
+      "#profile-description-input"
+    );
+    profileTitle.textContent = profileTitleInput.value;
+    profileDescription.textContent = profileDescriptionInput.value;
   }
 }
 
