@@ -20,12 +20,26 @@ class Popup {
   }
 
   setEventListeners() {
-    // this._popupElement.querySelectorAll("modal_opened");
-    const openedModal = document.querySelector("modal_opened");
+    const profileEditModal = document.querySelector("#profile__edit-modal");
+    const profileAddModal = document.querySelector("#profile__add-modal");
+    const profileEditCloseButton = profileEditModal.querySelector(
+      "#profile-modal-close"
+    );
+    const profileAddCloseButton = profileAddModal.querySelector(
+      "#modal-add-button-close"
+    );
 
-    if (evt.target === evt.currentTarget) {
-      close(evt.target);
-    }
+    profileAddCloseButton.addEventListener("click", () => {
+      this.close(profileAddModal);
+    });
+
+    profileEditCloseButton.addEventListener("click", () => {
+      this.close(profileEditModal);
+    });
+
+    // if (evt.target === evt.currentTarget) {
+    //   close(evt.target);
+    // }
   }
 }
 

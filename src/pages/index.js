@@ -31,6 +31,10 @@ section.renderItems();
 
 // CARD
 
+function handleImageClick(cardData) {
+  popupWithImage.open(cardData);
+}
+
 function renderCard(cardData, wrapper) {
   const card = new Card(
     cardData,
@@ -79,12 +83,6 @@ const cardImageModal = document.querySelector("#picture-modal");
 const cardImageCloseButton = cardImageModal.querySelector(
   "#picture__modal-button"
 );
-// const profileEditCloseButton = profileEditModal.querySelector(
-//   "#profile-modal-close"
-// );
-// const profileAddCloseButton = profileAddModal.querySelector(
-//   "#modal-add-button-close"
-// );
 
 function handlerAddCardSubmit(e) {
   e.preventDefault();
@@ -102,11 +100,15 @@ function newPlace() {
   addPopup.open();
 }
 
+addPopup.setEventListeners();
+
 const editPopup = new PopupWithForm(editCardSelector, handlerProfileEditSubmit);
 
 function editInfo() {
   editPopup.open();
 }
+
+editPopup.setEventListeners();
 
 // PopupWithForm.setEventListeners();
 
@@ -173,10 +175,6 @@ const profileAddForm = profileAddModal.querySelector("#add-card-form");
 //   profileTitleInput.value = profileTitle.textContent;
 //   profileDescriptionInput.value = profileDescription.textContent;
 // }
-
-function handleImageClick(cardData) {
-  popupWithImage.open(cardData);
-}
 
 // Mouse Click Key Function To Close Modals
 
