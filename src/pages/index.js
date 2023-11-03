@@ -39,9 +39,9 @@ function renderCard(cardData) {
   const addcard = new Card(
     cardData,
     "#card-template",
-    handleImageClick
+    handlerAddCardSubmit
   ).generateCard();
-  // section.addItem(addcard);
+  section.addItem(addcard);
 }
 
 function createCard(cardData) {
@@ -89,7 +89,7 @@ function handlerAddCardSubmit(e) {
   const name = addCardTitle.value;
   const link = addImageUrl.value;
   renderCard({ name, link });
-  close(profileAddModal);
+  addPopup.setEventListeners();
   profileAddForm.reset();
   addFormValidator.toggleButtonState();
 }

@@ -5,12 +5,10 @@ class PopupWithForm extends Popup {
     super({ popupSelector });
 
     this._form = this._popupElement.querySelector(".modal__form");
-    // this._closeButton = document.querySelector("#picture__modal-button");
     this._handleFormSubmit = handleFormSubmit;
   }
 
   close() {
-    // this._popupForm.reset();
     super.close();
   }
 
@@ -19,16 +17,9 @@ class PopupWithForm extends Popup {
     super.setEventListeners();
   }
 
-  // setEventListeners();
-
   _getInputValues() {
     profileTitleInput.value = profileTitle.textContent;
     profileDescriptionInput.value = profileDescription.textContent;
-    // profileEditForm = profileEditModal.querySelector("modal__form");
-    // profileAddModal = profileAddModal.querySelector("#add-card-form");
-    // cardImageCloseButton = cardImageModal.querySelector(
-    //   "#picture__modal-button"
-    // );
   }
 }
 
