@@ -16,7 +16,10 @@ class PopupWithForm extends Popup {
 
   setEventListeners() {
     this._popupElement.addEventListener("submit", this._handleFormSubmit);
+    super.setEventListeners();
   }
+
+  setEventListeners();
 
   _getInputValues() {
     profileTitleInput.value = profileTitle.textContent;
