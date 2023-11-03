@@ -137,6 +137,17 @@ userinfo.getUserInfo();
 
 userinfo.setUserInfo();
 
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileAddForm = profileAddModal.querySelector("#add-card-form");
+
+profileEditForm.addEventListener("submit", handlerProfileEditSubmit);
+profileAddModal.addEventListener("submit", handlerAddCardSubmit);
+
+function handlerProfileEditSubmit(e) {
+  e.preventDefault();
+  profileEditModal.classList.remove("modal_opened");
+}
+
 // VARIABLES & ELEMENTS
 
 // const profileTitle = document.querySelector(".profile__title");
@@ -145,8 +156,7 @@ userinfo.setUserInfo();
 // const profileDescriptionInput = document.querySelector(
 //   "#profile-description-input"
 // );
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const profileAddForm = profileAddModal.querySelector("#add-card-form");
+
 // const modalImageCloseButton = cardImageModal.querySelector(
 //   "#picture__modal-button"
 // );
@@ -195,16 +205,6 @@ function closeModalOnRemoteClick(evt) {
 // }
 
 // EVENT HANDLERS
-
-profileEditForm.addEventListener("submit", handlerProfileEditSubmit);
-profileAddModal.addEventListener("submit", handlerAddCardSubmit);
-
-function handlerProfileEditSubmit(e) {
-  e.preventDefault();
-  // profileTitle.textContent = profileTitleInput.value;
-  // profileDescription.textContent = profileDescriptionInput.value;
-  profileEditModal.classList.remove("modal_opened");
-}
 
 // EVENT LISTENERS
 
