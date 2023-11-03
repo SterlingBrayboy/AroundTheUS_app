@@ -36,21 +36,21 @@ function handleImageClick(cardData) {
 }
 
 function renderCard(cardData) {
-  const card = new Card(
+  const addcard = new Card(
     cardData,
     "#card-template",
     handleImageClick
   ).generateCard();
-  section.addItem(card);
+  // section.addItem(addcard);
 }
 
 function createCard(cardData) {
-  const card = new Card(
+  const newcard = new Card(
     cardData,
     "#card-template",
     handleImageClick
   ).generateCard();
-  return card;
+  return newcard;
 }
 
 // FORM VALIDATOR
