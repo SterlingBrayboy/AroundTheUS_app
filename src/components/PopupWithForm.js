@@ -19,7 +19,7 @@ class PopupWithForm extends Popup {
     super.setEventListeners();
   }
 
-  setEventListeners();
+  // setEventListeners();
 
   _getInputValues() {
     profileTitleInput.value = profileTitle.textContent;
