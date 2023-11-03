@@ -89,7 +89,7 @@ function handlerAddCardSubmit(e) {
   const name = addCardTitle.value;
   const link = addImageUrl.value;
   renderCard({ name, link });
-  addPopup.setEventListeners();
+  addPopup.close();
   profileAddForm.reset();
   addFormValidator.toggleButtonState();
 }
