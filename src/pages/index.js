@@ -98,7 +98,7 @@ function handlerAddCardSubmit() {
 
 const addPopup = new PopupWithForm(addCardSelector, handlerAddCardSubmit);
 
-function newPlace() {
+function openAddForm() {
   addPopup.open();
 }
 
@@ -106,56 +106,17 @@ addPopup.setEventListeners();
 
 const editPopup = new PopupWithForm(editCardSelector, handlerProfileEditSubmit);
 
-function editInfo() {
+function openEditForm() {
   editPopup.open();
 }
 
 editPopup.setEventListeners();
 
-profileAddModal.addEventListener("click", (evt) => {
-  if (evt.target === evt.currentTarget) {
-    addPopup.close(profileAddModal);
-  }
-});
-
-profileEditModal.addEventListener("click", (evt) => {
-  if (evt.target === evt.currentTarget) {
-    editPopup.close();
-  }
-});
-
-cardImageModal.addEventListener("click", (evt) => {
-  if (evt.target === evt.currentTarget) {
-    popupWithImage.close();
-  }
-});
-
 profileEditButton.addEventListener("click", () => {
-  // fillProfileForm;
-  editInfo();
+  openEditForm();
 });
 
-profileAddButton.addEventListener("click", () => newPlace());
-
-cardImageCloseButton.addEventListener("click", () => {
-  popupWithImage.close();
-});
-
-// const modal = document.querySelector(".modal");
-
-// function closeModalOnRemoteClick(evt) {
-//   if (evt.target === evt.currentTarget) {
-//     editPopup.close();
-//   }
-// }
-
-// Modals
-
-// function fillProfileForm() {
-//   userinfo.getUserInfo();
-
-//   userinfo.setUserInfo();
-// }
+profileAddButton.addEventListener("click", () => openAddForm());
 
 // USER INFO
 
