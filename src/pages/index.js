@@ -110,8 +110,6 @@ function editInfo() {
 
 editPopup.setEventListeners();
 
-// const modal = document.querySelector(".modal");
-
 profileAddModal.addEventListener("click", (evt) => {
   if (evt.target === evt.currentTarget) {
     addPopup.close(profileAddModal);
@@ -130,6 +128,19 @@ cardImageModal.addEventListener("click", (evt) => {
   }
 });
 
+profileEditButton.addEventListener("click", () => {
+  // fillProfileForm;
+  editInfo();
+});
+
+profileAddButton.addEventListener("click", () => newPlace());
+
+cardImageCloseButton.addEventListener("click", () => {
+  popupWithImage.close();
+});
+
+// const modal = document.querySelector(".modal");
+
 // function closeModalOnRemoteClick(evt) {
 //   if (evt.target === evt.currentTarget) {
 //     editPopup.close();
@@ -143,17 +154,6 @@ cardImageModal.addEventListener("click", (evt) => {
 
 //   userinfo.setUserInfo();
 // }
-
-profileEditButton.addEventListener("click", () => {
-  // fillProfileForm;
-  editInfo();
-});
-
-profileAddButton.addEventListener("click", () => newPlace());
-
-cardImageCloseButton.addEventListener("click", () => {
-  popupWithImage.close();
-});
 
 // USER INFO
 
