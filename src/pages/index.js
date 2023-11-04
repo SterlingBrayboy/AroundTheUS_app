@@ -71,6 +71,8 @@ editFormValidator.enableValidation();
 
 const popupWithImage = new PopupWithImage("#picture-modal");
 
+popupWithImage.setEventListeners();
+
 // POPUP WITH FORM
 
 const addCardSelector = "#profile__add-modal";
