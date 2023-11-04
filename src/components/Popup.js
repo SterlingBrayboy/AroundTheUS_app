@@ -20,25 +20,13 @@ class Popup {
   };
 
   setEventListeners() {
-    // this._popupElement.addEventlistener("click", (evt) => {
-    //   if (evt.target.classList.contains(".modal" || ".modal__close")) {
-    //     this.close(".modal");
-    //   }
-    // });
-    // });
-    const profileEditModal = document.querySelector("#profile__edit-modal");
-    const profileAddModal = document.querySelector("#profile__add-modal");
-    const profileEditCloseButton = profileEditModal.querySelector(
-      "#profile-modal-close"
-    );
-    const profileAddCloseButton = profileAddModal.querySelector(
-      "#modal-add-button-close"
-    );
-    profileAddCloseButton.addEventListener("click", () => {
-      this.close(profileAddModal);
-    });
-    profileEditCloseButton.addEventListener("click", () => {
-      this.close(profileEditModal);
+    this._popupElement.addEventlistener("click", (evt) => {
+      if (
+        evt.target.classList.contains(".modal") ||
+        evt.target.classList.contains(".modal__close")
+      ) {
+        this.close();
+      }
     });
   }
 }

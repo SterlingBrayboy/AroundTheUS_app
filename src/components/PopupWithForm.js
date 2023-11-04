@@ -8,9 +8,9 @@ class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
   }
 
-  close() {
-    super.close();
-  }
+  // close() {
+  //   super.close();
+  // }
 
   setEventListeners() {
     this._popupElement.addEventListener("submit", this._handleFormSubmit);
@@ -18,8 +18,8 @@ class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    profileTitleInput.value = profileTitle.textContent;
-    profileDescriptionInput.value = profileDescription.textContent;
+    // profileTitleInput.value = profileTitle.textContent;
+    // profileDescriptionInput.value = profileDescription.textContent;
   }
 }
 
