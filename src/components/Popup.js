@@ -14,8 +14,13 @@ class Popup {
   }
 
   _handleEscClose(evt) {
+    const profileEditForm = profileEditModal.querySelector(".modal__form");
+    const profileAddForm = profileAddModal.querySelector("#add-card-form");
+    const profileEditModal = document.querySelector("#profile__edit-modal");
+    const profileAddModal = document.querySelector("#profile__add-modal");
     if (evt.key === "Escape") {
-      this.close();
+      this.close(profileAddForm);
+      this.close(profileEditForm);
     }
   }
 

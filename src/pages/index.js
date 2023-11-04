@@ -84,8 +84,8 @@ const cardImageCloseButton = cardImageModal.querySelector(
   "#picture__modal-button"
 );
 
-function handlerAddCardSubmit(e) {
-  e.preventDefault();
+function handlerAddCardSubmit() {
+  // e.preventDefault();
   const name = addCardTitle.value;
   const link = addImageUrl.value;
   renderCard({ name, link });
@@ -110,13 +110,23 @@ function editInfo() {
 
 editPopup.setEventListeners();
 
-const modal = document.querySelector(".modal");
+// const modal = document.querySelector(".modal");
 
-modal.addEventListener("click", (evt) => {
+profileAddModal.addEventListener("click", (evt) => {
   if (evt.target === evt.currentTarget) {
-    addPopup.close();
-    popupWithImage.close();
+    addPopup.close(profileAddModal);
+  }
+});
+
+profileEditModal.addEventListener("click", (evt) => {
+  if (evt.target === evt.currentTarget) {
     editPopup.close();
+  }
+});
+
+cardImageModal.addEventListener("click", (evt) => {
+  if (evt.target === evt.currentTarget) {
+    popupWithImage.close();
   }
 });
 
