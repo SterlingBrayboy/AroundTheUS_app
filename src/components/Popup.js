@@ -15,7 +15,7 @@ class Popup {
 
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
-      close();
+      this.close();
     }
   }
 
@@ -36,10 +36,6 @@ class Popup {
     profileEditCloseButton.addEventListener("click", () => {
       this.close(profileEditModal);
     });
-
-    // if (evt.target === evt.currentTarget) {
-    //   close(evt.target);
-    // }
   }
 }
 

@@ -39,7 +39,7 @@ function renderCard(cardData) {
   const addcard = new Card(
     cardData,
     "#card-template",
-    handlerAddCardSubmit
+    handleImageClick
   ).generateCard();
   section.addItem(addcard);
 }
@@ -109,6 +109,22 @@ function editInfo() {
 }
 
 editPopup.setEventListeners();
+
+const modal = document.querySelector(".modal");
+
+modal.addEventListener("click", (evt) => {
+  if (evt.target === evt.currentTarget) {
+    addPopup.close();
+    popupWithImage.close();
+    editPopup.close();
+  }
+});
+
+// function closeModalOnRemoteClick(evt) {
+//   if (evt.target === evt.currentTarget) {
+//     editPopup.close();
+//   }
+// }
 
 // Modals
 
@@ -188,12 +204,6 @@ function handlerProfileEditSubmit(e) {
 // }
 
 // Mouse Click Key Function To Close Modals
-
-function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    popupWithImage.close(evt.target);
-  }
-}
 
 // Keydown Escape Key Function To Close Modals
 
