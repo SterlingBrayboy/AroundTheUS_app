@@ -13,10 +13,7 @@ class PopupWithForm extends Popup {
     super.setEventListeners();
   }
 
-  _getInputValues() {
-    // profileTitleInput.value = profileTitle.textContent;
-    // profileDescriptionInput.value = profileDescription.textContent;
-  }
+  _getInputValues() {}
 }
 
 export default PopupWithForm;

@@ -14,10 +14,9 @@ class UserInfo {
   }
 
   setUserInfo(data) {
-    this._userNameElement.textContent;
-    this._userDescriptionElement.textContent;
-
-    return data;
+    this._userNameElement.textContent = this._userNameElement.value;
+    this._userDescriptionElement.textContent =
+      this._userDescriptionElement.value;
   }
 }
 

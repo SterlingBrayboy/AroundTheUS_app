@@ -75,6 +75,8 @@ popupWithImage.setEventListeners();
 
 // POPUP WITH FORM
 
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileAddForm = profileAddModal.querySelector("#add-card-form");
 const addCardSelector = "#profile__add-modal";
 const editCardSelector = "#profile__edit-modal";
 const addCardTitle = document.querySelector("#modal-title-input");
@@ -124,9 +126,6 @@ const userinfo = new UserInfo(
 userinfo.getUserInfo();
 
 userinfo.setUserInfo();
-
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const profileAddForm = profileAddModal.querySelector("#add-card-form");
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 profileAddModal.addEventListener("submit", handleAddCardSubmit);
