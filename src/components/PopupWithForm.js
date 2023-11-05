@@ -9,11 +9,18 @@ class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    this._popupElement.addEventListener("submit", this._handleFormSubmit);
+    this._popupElement.addEventListener("submit", () => {
+      this._handleFormSubmit(this._getInputValues);
+    });
     super.setEventListeners();
   }
 
-  _getInputValues() {}
+  _getInputValues() {
+    return {
+      name: "#profile-name-input",
+      description: "#profile-description-input",
+    };
+  }
 }
 
 export default PopupWithForm;

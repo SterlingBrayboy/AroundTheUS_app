@@ -102,7 +102,7 @@ function openAddForm() {
 
 addPopup.setEventListeners();
 
-const editPopup = new PopupWithForm(editCardSelector, handleProfileEditSubmit);
+const editPopup = new PopupWithForm(editCardSelector, handleEditFormSubmit);
 
 function openEditForm() {
   editPopup.open();
@@ -116,6 +116,9 @@ profileEditButton.addEventListener("click", () => {
 
 profileAddButton.addEventListener("click", () => openAddForm());
 
+profileEditForm.addEventListener("submit", handleEditFormSubmit);
+profileAddModal.addEventListener("submit", handleAddCardSubmit);
+
 // USER INFO
 
 const userinfo = new UserInfo(
@@ -125,12 +128,10 @@ const userinfo = new UserInfo(
 
 userinfo.getUserInfo();
 
-userinfo.setUserInfo();
-
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-profileAddModal.addEventListener("submit", handleAddCardSubmit);
-
-function handleProfileEditSubmit(e) {
-  e.preventDefault();
-  profileEditModal.classList.remove("modal_opened");
+function handleEditFormSubmit(cardData) {
+  // e.preventDefault();
+  cardData.name = "#profile-name-input";
+  cardData.description = "#profile-description-input";
+  userinfo.setUserInfo(cardData);
+  // profileEditModal.classList.remove("modal_opened");
 }
