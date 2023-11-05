@@ -1,35 +1,23 @@
 class UserInfo {
-  constructor({ nameSelector, jobSelector }) {
-    this._name = nameSelector;
-    this._job = jobSelector;
+  constructor({ userNameSelector, userDescriptionSelector }) {
+    this._userNameElement = document.querySelector(userNameSelector);
+    this._userDescriptionElement = document.querySelector(
+      userDescriptionSelector
+    );
   }
 
   getUserInfo() {
-    // const profileTitleInput = document.querySelector("#profile-name-input");
-    // const profileTitle = document.querySelector(".profile__title");
-    // const profileDescription = document.querySelector(".profile__description");
-    // const profileDescriptionInput = document.querySelector(
-    //   "#profile-description-input"
-    // );
-    // profileTitleInput.value = profileTitle.textContent;
-    // profileDescriptionInput.value = profileDescription.textContent;
+    return {
+      name: this._userNameElement,
+      description: this._userDescriptionElement,
+    };
   }
 
-  setUserInfo() {
-    // const profileEditModal = document.querySelector("#profile__edit-modal");
-    // const profileEditForm = profileEditModal.querySelector(".modal__form");
-    // profileEditForm.addEventListener("submit", () => {
-    //   const profileTitle = document.querySelector(".profile__title");
-    //   const profileTitleInput = document.querySelector("#profile-name-input");
-    //   const profileDescription = document.querySelector(
-    //     ".profile__description"
-    //   );
-    //   const profileDescriptionInput = document.querySelector(
-    //     "#profile-description-input"
-    //   );
-    //   profileTitle.textContent = profileTitleInput.value;
-    //   profileDescription.textContent = profileDescriptionInput.value;
-    // });
+  setUserInfo(data) {
+    this._userNameElement.textContent;
+    this._userDescriptionElement.textContent;
+
+    return data;
   }
 }
 

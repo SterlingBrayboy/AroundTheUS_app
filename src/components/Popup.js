@@ -20,10 +20,12 @@ class Popup {
   };
 
   setEventListeners() {
+    debugger;
     this._popupElement.addEventListener("click", (evt) => {
       if (
-        evt.target.classList.contains(".modal") ||
-        evt.target.classList.contains(".modal__close")
+        evt.target.classList.contains("modal") ||
+        evt.target.classList.contains("modal__close") ||
+        evt.target.classList.contains("modal__picture-button")
       ) {
         this.close();
       }

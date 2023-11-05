@@ -81,10 +81,6 @@ const addCardTitle = document.querySelector("#modal-title-input");
 const addImageUrl = document.querySelector("#modal-image-url");
 const profileEditButton = document.querySelector("#profile__edit-button");
 const profileAddButton = document.querySelector(".profile__add-button");
-const cardImageModal = document.querySelector("#picture-modal");
-const cardImageCloseButton = cardImageModal.querySelector(
-  "#picture__modal-button"
-);
 
 function handleAddCardSubmit() {
   // e.preventDefault();
@@ -120,7 +116,10 @@ profileAddButton.addEventListener("click", () => openAddForm());
 
 // USER INFO
 
-const userinfo = new UserInfo("profile__title", "profile__description");
+const userinfo = new UserInfo(
+  "#profile-name-input",
+  "#profile-description-input"
+);
 
 userinfo.getUserInfo();
 
