@@ -13,9 +13,9 @@ class UserInfo {
     };
   }
 
-  setUserInfo(cardData) {
-    cardData.name = this._userNameElement;
-    cardData.description = this._userDescriptionElement;
+  setUserInfo(name, description) {
+    this._userNameElement.textContent = name.value;
+    this._userDescriptionElement.textContent = description.value;
   }
 }
 

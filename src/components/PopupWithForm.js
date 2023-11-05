@@ -6,6 +6,7 @@ class PopupWithForm extends Popup {
 
     this._form = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
+    this._inputEls = [...this._form.querySelectorAll("modal__input")];
   }
 
   setEventListeners() {
@@ -16,10 +17,11 @@ class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    return {
-      name: "#profile-name-input",
-      description: "#profile-description-input",
-    };
+    const inputValues = [];
+    this._inputEls.forEach((inputEl) => {
+      inputValues[inputEl.name] = "modal__input";
+    });
+    return inputValues;
   }
 }
 

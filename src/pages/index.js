@@ -128,10 +128,10 @@ const userinfo = new UserInfo(
 
 userinfo.getUserInfo();
 
-function handleEditFormSubmit(cardData) {
+function handleEditFormSubmit() {
   // e.preventDefault();
-  cardData.name = "#profile-name-input";
-  cardData.description = "#profile-description-input";
-  userinfo.setUserInfo(cardData);
-  // profileEditModal.classList.remove("modal_opened");
+  // cardData.name = "modal__input";
+  userinfo.setUserInfo();
+  editPopup.setEventListeners();
+  profileEditModal.classList.remove("modal_opened");
 }
