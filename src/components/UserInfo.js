@@ -1,5 +1,5 @@
 class UserInfo {
-  constructor({ userNameSelector, userDescriptionSelector }) {
+  constructor(userNameSelector, userDescriptionSelector) {
     this._userNameElement = document.querySelector(userNameSelector);
     this._userDescriptionElement = document.querySelector(
       userDescriptionSelector
@@ -8,14 +8,14 @@ class UserInfo {
 
   getUserInfo() {
     return {
-      name: this._userNameElement,
-      description: this._userDescriptionElement,
+      name: this._userNameElement.textContent,
+      description: this._userDescriptionElement.textContent,
     };
   }
 
   setUserInfo(name, description) {
-    this._userNameElement.textContent = name.value;
-    this._userDescriptionElement.textContent = description.value;
+    this._userNameElement.textContent = name;
+    this._userDescriptionElement.textContent = description;
   }
 }
 

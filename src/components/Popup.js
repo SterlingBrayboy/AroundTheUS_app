@@ -24,7 +24,8 @@ class Popup {
       if (
         evt.target.classList.contains("modal") ||
         evt.target.classList.contains("modal__close") ||
-        evt.target.classList.contains("modal__picture-button")
+        evt.target.classList.contains("modal__picture-button") ||
+        evt.target.classList.contains("modal__container-button")
       ) {
         this.close();
       }

@@ -83,6 +83,7 @@ const addCardTitle = document.querySelector("#modal-title-input");
 const addImageUrl = document.querySelector("#modal-image-url");
 const profileEditButton = document.querySelector("#profile__edit-button");
 const profileAddButton = document.querySelector(".profile__add-button");
+const profileSaveButton = document.querySelector(".modal__container-button");
 
 function handleAddCardSubmit() {
   // e.preventDefault();
@@ -121,17 +122,12 @@ profileAddModal.addEventListener("submit", handleAddCardSubmit);
 
 // USER INFO
 
-const userinfo = new UserInfo(
-  "#profile-name-input",
-  "#profile-description-input"
-);
+const userinfo = new UserInfo(".profile__title", ".profile__description");
 
-userinfo.getUserInfo();
+// userinfo.setUserInfo("sterling", "brayboy");
 
-function handleEditFormSubmit() {
-  // e.preventDefault();
-  // cardData.name = "modal__input";
-  userinfo.setUserInfo();
+function handleEditFormSubmit(name, description) {
+  userinfo.setUserInfo(`${name}`, `${description}`);
   editPopup.setEventListeners();
   profileEditModal.classList.remove("modal_opened");
 }
