@@ -122,8 +122,9 @@ variables.profileAddButton.addEventListener("click", () => openAddForm());
 
 const userinfo = new UserInfo(".profile__title", ".profile__description");
 
-function handleEditFormSubmit(name, description) {
-  userinfo.setUserInfo(`${name}`, `${description}`);
+function handleEditFormSubmit(inputValues) {
+  // userinfo.setUserInfo(`${name}`, `${description}`);
+  userinfo.setUserInfo(inputValues.name, inputValues.description);
   editPopup.setEventListeners();
   variables.profileEditModal.classList.remove("modal_opened");
 }
