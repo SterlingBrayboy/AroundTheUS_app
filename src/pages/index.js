@@ -90,10 +90,7 @@ function handleAddCardSubmit() {
   addFormValidator.toggleButtonState();
 }
 
-const addPopup = new PopupWithForm(
-  variables.addCardSelector,
-  handleAddCardSubmit
-);
+const addPopup = new PopupWithForm(variables.addCardClass, handleAddCardSubmit);
 
 function openAddForm() {
   addPopup.open();
@@ -102,7 +99,7 @@ function openAddForm() {
 addPopup.setEventListeners();
 
 const editPopup = new PopupWithForm(
-  variables.editCardSelector,
+  variables.editCardClass,
   handleEditFormSubmit
 );
 
@@ -123,7 +120,6 @@ variables.profileAddButton.addEventListener("click", () => openAddForm());
 const userinfo = new UserInfo(".profile__title", ".profile__description");
 
 function handleEditFormSubmit(inputValues) {
-  // userinfo.setUserInfo(`${name}`, `${description}`);
   userinfo.setUserInfo(inputValues.name, inputValues.description);
   editPopup.setEventListeners();
   variables.profileEditModal.classList.remove("modal_opened");

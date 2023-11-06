@@ -34,16 +34,16 @@ const config = {
 };
 
 const variables = {
-  profileEditModal: "#profile__edit-modal",
-  profileAddModal: "#profile__add-modal",
-  profileEditForm: ".modal__form",
-  profileAddForm: "#add-card-form",
-  addCardSelector: "#profile__add-modal",
-  editCardSelector: "#profile__edit-modal",
-  addCardTitle: "#modal-title-input",
-  addImageUrl: "#modal-image-url",
-  profileEditButton: "#profile__edit-button",
-  profileAddButton: ".profile__add-button",
+  profileEditModal: document.querySelector("#profile__edit-modal"),
+  profileAddModal: document.querySelector("#profile__add-modal"),
+  profileEditForm: document.querySelector(".modal__form"),
+  profileAddForm: document.querySelector("#add-card-form"),
+  addCardClass: document.querySelector("#profile__add-modal"),
+  editCardClass: document.querySelector("#profile__edit-modal"),
+  addCardTitle: document.querySelector("#modal-title-input"),
+  addImageUrl: document.querySelector("#modal-image-url"),
+  profileEditButton: document.querySelector("#profile__edit-button"),
+  profileAddButton: document.querySelector(".profile__add-button"),
 };
 
 export { initialCards, config, variables };

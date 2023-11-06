@@ -1,13 +1,14 @@
 class FormValidator {
-  constructor(config, formEl) {
+  constructor(config, formSelector) {
     this._inputSelector = config.inputSelector;
     this._submitButtonSelector = config.submitButtonSelector;
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
-    this._formEl = formEl;
-    this._submitButton = config.submitButtonSelector;
-    this._inputEls = [...config.inputSelector];
+    // this._formEl = document.querySelector(formSelector);
+    this._formEl = formSelector;
+    this._submitButton = this._formEl.querySelector(this._submitButtonSelector);
+    this._inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
   }
 
   _showInputError(inputEl) {
