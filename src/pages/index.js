@@ -12,7 +12,7 @@ import Card from "../components/Card.js";
 
 import "./index.css";
 
-import { initialCards, config } from "../utils/constants.js";
+import { initialCards, config, variables } from "../utils/constants.js";
 
 // SECTION
 
@@ -55,16 +55,13 @@ function createCard(cardData) {
 
 // FORM VALIDATOR
 
-const profileEditModal = document.querySelector("#profile__edit-modal");
-const profileAddModal = document.querySelector("#profile__add-modal");
+// const profileEditModal = document.querySelector("#profile__edit-modal");
+// const profileAddModal = document.querySelector("#profile__add-modal");
 
-const addFormEl = profileAddModal;
-const editFormEl = profileEditModal;
-
-const addFormValidator = new FormValidator(config, addFormEl);
+const addFormValidator = new FormValidator(config, variables.profileAddModal);
 addFormValidator.enableValidation();
 
-const editFormValidator = new FormValidator(config, editFormEl);
+const editFormValidator = new FormValidator(config, variables.profileEditModal);
 editFormValidator.enableValidation();
 
 // POPUP WITH IMAGE
@@ -75,27 +72,28 @@ popupWithImage.setEventListeners();
 
 // POPUP WITH FORM
 
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const profileAddForm = profileAddModal.querySelector("#add-card-form");
-const addCardSelector = "#profile__add-modal";
-const editCardSelector = "#profile__edit-modal";
-const addCardTitle = document.querySelector("#modal-title-input");
-const addImageUrl = document.querySelector("#modal-image-url");
-const profileEditButton = document.querySelector("#profile__edit-button");
-const profileAddButton = document.querySelector(".profile__add-button");
-const profileSaveButton = document.querySelector(".modal__container-button");
+// const profileAddForm = profileAddModal.querySelector("#add-card-form");
+// const addCardSelector = "#profile__add-modal";
+// const editCardSelector = "#profile__edit-modal";
+// const addCardTitle = document.querySelector("#modal-title-input");
+// const addImageUrl = document.querySelector("#modal-image-url");
+// const profileEditButton = document.querySelector("#profile__edit-button");
+// const profileAddButton = document.querySelector(".profile__add-button");
 
 function handleAddCardSubmit() {
   // e.preventDefault();
-  const name = addCardTitle.value;
-  const link = addImageUrl.value;
+  const name = variables.addCardTitle.value;
+  const link = variables.addImageUrl.value;
   renderCard({ name, link });
   addPopup.close();
-  profileAddForm.reset();
+  variables.profileAddForm.reset();
   addFormValidator.toggleButtonState();
 }
 
-const addPopup = new PopupWithForm(addCardSelector, handleAddCardSubmit);
+const addPopup = new PopupWithForm(
+  variables.addCardSelector,
+  handleAddCardSubmit
+);
 
 function openAddForm() {
   addPopup.open();
@@ -103,7 +101,10 @@ function openAddForm() {
 
 addPopup.setEventListeners();
 
-const editPopup = new PopupWithForm(editCardSelector, handleEditFormSubmit);
+const editPopup = new PopupWithForm(
+  variables.editCardSelector,
+  handleEditFormSubmit
+);
 
 function openEditForm() {
   editPopup.open();
@@ -111,23 +112,18 @@ function openEditForm() {
 
 editPopup.setEventListeners();
 
-profileEditButton.addEventListener("click", () => {
+variables.profileEditButton.addEventListener("click", () => {
   openEditForm();
 });
 
-profileAddButton.addEventListener("click", () => openAddForm());
-
-profileEditForm.addEventListener("submit", handleEditFormSubmit);
-profileAddModal.addEventListener("submit", handleAddCardSubmit);
+variables.profileAddButton.addEventListener("click", () => openAddForm());
 
 // USER INFO
 
 const userinfo = new UserInfo(".profile__title", ".profile__description");
 
-// userinfo.setUserInfo("sterling", "brayboy");
-
 function handleEditFormSubmit(name, description) {
   userinfo.setUserInfo(`${name}`, `${description}`);
   editPopup.setEventListeners();
-  profileEditModal.classList.remove("modal_opened");
+  variables.profileEditModal.classList.remove("modal_opened");
 }
