@@ -29,6 +29,12 @@ const section = new Section(
 
 section.renderItems();
 
+// POPUP WITH IMAGE
+
+const popupWithImage = new PopupWithImage("#picture-modal");
+
+popupWithImage.setEventListeners();
+
 // CARD
 
 function handleImageClick(cardData) {
@@ -63,12 +69,6 @@ addFormValidator.enableValidation();
 
 const editFormValidator = new FormValidator(config, variables.profileEditModal);
 editFormValidator.enableValidation();
-
-// POPUP WITH IMAGE
-
-const popupWithImage = new PopupWithImage("#picture-modal");
-
-popupWithImage.setEventListeners();
 
 // POPUP WITH FORM
 
