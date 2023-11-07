@@ -42,13 +42,8 @@ function handleImageClick(cardData) {
 }
 
 function renderCard(cardData) {
-  const card = new Card(
-    cardData,
-    "#card-template",
-    handleImageClick
-  ).generateCard();
-  section.addItem(card);
-  return card;
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  return card.generateCard();
 }
 
 // function createCard(cardData) {
