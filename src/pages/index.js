@@ -47,7 +47,7 @@ function renderCard(cardData) {
     "#card-template",
     handleImageClick
   ).generateCard();
-  // section.addItem(card);
+  section.addItem(card);
   return card;
 }
 
