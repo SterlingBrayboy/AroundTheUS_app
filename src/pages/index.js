@@ -64,10 +64,16 @@ function createCard(cardData) {
 // const profileEditModal = document.querySelector("#profile__edit-modal");
 // const profileAddModal = document.querySelector("#profile__add-modal");
 
-const addFormValidator = new FormValidator(config, variables.profileAddModal);
+const addFormValidator = new FormValidator(
+  config,
+  variables.profileAddSelector
+);
 addFormValidator.enableValidation();
 
-const editFormValidator = new FormValidator(config, variables.profileEditModal);
+const editFormValidator = new FormValidator(
+  config,
+  variables.profileEditSelector
+);
 editFormValidator.enableValidation();
 
 // POPUP WITH FORM
@@ -82,15 +88,18 @@ editFormValidator.enableValidation();
 
 function handleAddCardSubmit() {
   // e.preventDefault();
-  const name = variables.addCardTitle.value;
-  const link = variables.addImageUrl.value;
+  const name = variables.addCardTitleSelector.value;
+  const link = variables.addImageUrlSelector.value;
   renderCard({ name, link });
   addPopup.close();
-  variables.profileAddForm.reset();
+  variables.profileAddFormSelector.reset();
   addFormValidator.toggleButtonState();
 }
 
-const addPopup = new PopupWithForm(variables.addCardClass, handleAddCardSubmit);
+const addPopup = new PopupWithForm(
+  variables.addCardSelector,
+  handleAddCardSubmit
+);
 
 function openAddForm() {
   addPopup.open();
@@ -99,7 +108,7 @@ function openAddForm() {
 addPopup.setEventListeners();
 
 const editPopup = new PopupWithForm(
-  variables.editCardClass,
+  variables.editCardSelector,
   handleEditFormSubmit
 );
 
@@ -109,11 +118,13 @@ function openEditForm() {
 
 editPopup.setEventListeners();
 
-variables.profileEditButton.addEventListener("click", () => {
+variables.profileEditButtonSelector.addEventListener("click", () => {
   openEditForm();
 });
 
-variables.profileAddButton.addEventListener("click", () => openAddForm());
+variables.profileAddButtonSelector.addEventListener("click", () =>
+  openAddForm()
+);
 
 // USER INFO
 
@@ -122,5 +133,5 @@ const userinfo = new UserInfo(".profile__title", ".profile__description");
 function handleEditFormSubmit(inputValues) {
   userinfo.setUserInfo(inputValues.name, inputValues.description);
   editPopup.setEventListeners();
-  variables.profileEditModal.classList.remove("modal_opened");
+  variables.profileEditSelector.classList.remove("modal_opened");
 }
