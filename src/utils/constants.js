@@ -40,8 +40,8 @@ const variables = {
   profileAddForm: document.querySelector("#add-card-form"),
   addCardClass: "#profile__add-modal",
   editCardClass: "#profile__edit-modal",
-  addCardTitle: "#modal-title-input",
-  addImageUrl: "#modal-image-url",
+  // addCardTitle: "#modal-title-input",
+  // addImageUrl: "#modal-image-url",
   profileEditButtonSelector: document.querySelector("#profile__edit-button"),
   profileAddButtonSelector: document.querySelector(".profile__add-button"),
 };

@@ -47,10 +47,9 @@ function createCard(cardData) {
 
 function handleAddCardSubmit(inputValues) {
   // e.preventDefault();
-  // const name = variables.addCardTitle.value;
-  // const link = variables.addImageUrl.value;
+  // const name = variables.addCardTitle.name;
+  // const link = variables.addImageUrl.link;
   createCard(inputValues);
-  addPopup.close();
   variables.profileAddForm.reset();
   addFormValidator.toggleButtonState();
 }
