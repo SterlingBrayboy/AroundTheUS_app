@@ -24,9 +24,7 @@ class Popup {
     this._popupElement.addEventListener("click", (evt) => {
       if (
         evt.target.classList.contains("modal") ||
-        evt.target.classList.contains("modal__close") ||
-        evt.target.classList.contains("modal__picture-button") ||
-        evt.target.classList.contains("modal__container-button")
+        evt.target.classList.contains("modal__close")
       ) {
         this.close();
       }

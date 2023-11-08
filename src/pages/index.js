@@ -49,6 +49,7 @@ function handleAddCardSubmit(inputValues) {
   createCard(inputValues);
   variables.profileAddForm.reset();
   addFormValidator.toggleButtonState();
+  addPopup.close();
 }
 
 // FORM VALIDATOR
@@ -94,5 +95,5 @@ const userinfo = new UserInfo(".profile__title", ".profile__description");
 
 function handleEditFormSubmit(inputValues) {
   userinfo.setUserInfo(inputValues.name, inputValues.description);
-  editPopup.setEventListeners();
+  editPopup.close();
 }
