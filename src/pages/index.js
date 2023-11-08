@@ -20,7 +20,7 @@ const section = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
-      const card = renderCard(cardData);
+      const card = createCard(cardData);
       section.addItem(card);
     },
   },
@@ -41,19 +41,10 @@ function handleImageClick(cardData) {
   popupWithImage.open(cardData);
 }
 
-function renderCard(cardData) {
+function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
   return card.generateCard();
 }
-
-// function createCard(cardData) {
-//   const newcard = new Card(
-//     cardData,
-//     "#card-template",
-//     handleImageClick
-//   ).generateCard();
-//   return newcard;
-// }
 
 // FORM VALIDATOR
 
