@@ -20,8 +20,7 @@ const section = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
-      const card = createCard(cardData);
-      section.addItem(card);
+      createCard(cardData);
     },
   },
   "gallery__cards"
@@ -43,7 +42,17 @@ function handleImageClick(cardData) {
 
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
-  return card.generateCard();
+  section.addItem(card.generateCard());
+}
+
+function handleAddCardSubmit(inputValues) {
+  // e.preventDefault();
+  // const name = variables.addCardTitle.value;
+  // const link = variables.addImageUrl.value;
+  createCard(inputValues);
+  addPopup.close();
+  variables.profileAddForm.reset();
+  addFormValidator.toggleButtonState();
 }
 
 // FORM VALIDATOR
@@ -55,16 +64,6 @@ const editFormValidator = new FormValidator(config, variables.profileEditModal);
 editFormValidator.enableValidation();
 
 // POPUP WITH FORM
-
-function handleAddCardSubmit() {
-  // e.preventDefault();
-  const name = variables.addCardTitle.value;
-  const link = variables.addImageUrl.value;
-  renderCard({ name, link });
-  addPopup.close();
-  variables.profileAddForm.reset();
-  addFormValidator.toggleButtonState();
-}
 
 const addPopup = new PopupWithForm(variables.addCardClass, handleAddCardSubmit);
 
@@ -100,5 +99,4 @@ const userinfo = new UserInfo(".profile__title", ".profile__description");
 function handleEditFormSubmit(inputValues) {
   userinfo.setUserInfo(inputValues.name, inputValues.description);
   editPopup.setEventListeners();
-  // variables.profileEditModal.classList.remove("modal_opened");
 }
