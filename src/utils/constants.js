@@ -38,6 +38,8 @@ const variables = {
   profileAddModal: "#profile__add-modal",
   profileEditForm: ".modal__form",
   profileAddForm: document.querySelector("#add-card-form"),
+  nameInput: document.querySelector("#profile-name-input"),
+  descriptionInput: document.querySelector("#profile-description-input"),
   addCardClass: "#profile__add-modal",
   editCardClass: "#profile__edit-modal",
   profileEditButtonSelector: document.querySelector("#profile__edit-button"),

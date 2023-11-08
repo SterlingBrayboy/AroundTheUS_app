@@ -76,6 +76,9 @@ const editPopup = new PopupWithForm(
 );
 
 function openEditForm() {
+  const user = userinfo.getUserInfo();
+  variables.nameInput.value = user.name;
+  variables.descriptionInput.value = user.description;
   editPopup.open();
 }
 
