@@ -10,9 +10,21 @@ import Section from "../components/Section.js";
 
 import Card from "../components/Card.js";
 
+import Api from "../components/Api.js";
+
 import "./index.css";
 
 import { initialCards, config, variables } from "../utils/constants.js";
+
+// API
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
+    "Content-Type": "application/json",
+  },
+});
 
 // SECTION
 
