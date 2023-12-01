@@ -19,7 +19,6 @@ import { initialCards, config, variables } from "../utils/constants.js";
 // API
 
 const api = new Api({
-  method: "PATCH",
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
