@@ -54,12 +54,12 @@ api
   })
   .catch(console.error);
 
-// api
-//   .editProfile()
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch(console.error);
+api
+  .editProfile()
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(console.error);
 
 // POPUP WITH IMAGE
 

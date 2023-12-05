@@ -40,7 +40,7 @@ class Api {
   }
 
   editProfile() {
-    fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+    return fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
       method: "PATCH",
       headers: {
         authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
@@ -50,6 +50,12 @@ class Api {
         name: "Marie Skłodowska Curie",
         about: "Physicist and Chemist",
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // if the server returns an error, reject the promise
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 }
