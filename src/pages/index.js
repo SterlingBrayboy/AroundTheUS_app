@@ -40,6 +40,27 @@ const section = new Section(
 
 section.renderItems();
 
+api
+  .getInitialCards()
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(console.error);
+
+api
+  .loadInfo()
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(console.error);
+
+// api
+//   .editProfile()
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch(console.error);
+
 // POPUP WITH IMAGE
 
 const popupWithImage = new PopupWithImage("#picture-modal");
