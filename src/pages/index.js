@@ -61,6 +61,13 @@ api
   })
   .catch(console.error);
 
+api
+  .addNewCard()
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(console.error);
+
 // POPUP WITH IMAGE
 
 const popupWithImage = new PopupWithImage("#picture-modal");

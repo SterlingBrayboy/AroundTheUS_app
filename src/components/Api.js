@@ -47,8 +47,28 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "Marie Skłodowska Curie",
-        about: "Physicist and Chemist",
+        name: "Jacques Cousteau",
+        about: "Sailor, researcher",
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // if the server returns an error, reject the promise
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  addNewCard() {
+    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+      method: "POST",
+      headers: {
+        authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "Bald Mountains",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
       }),
     }).then((res) => {
       if (res.ok) {
