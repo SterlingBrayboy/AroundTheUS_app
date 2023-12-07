@@ -59,7 +59,8 @@ class Api {
     });
   }
 
-  addNewCard() {
+  // pass name and link as argument
+  addNewCard(data) {
     return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
       method: "POST",
       headers: {
@@ -67,8 +68,8 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "Bald Mountains",
-        link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+        name: data.name,
+        link: data.link,
       }),
     }).then((res) => {
       if (res.ok) {

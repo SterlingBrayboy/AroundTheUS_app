@@ -54,19 +54,19 @@ api
   })
   .catch(console.error);
 
-api
-  .editProfile()
-  .then((res) => {
-    console.log(res);
-  })
-  .catch(console.error);
+// api
+//   .editProfile()
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch(console.error);
 
-api
-  .addNewCard()
-  .then((res) => {
-    console.log(res);
-  })
-  .catch(console.error);
+// api
+//   .addNewCard()
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch(console.error);
 
 // POPUP WITH IMAGE
 
@@ -86,9 +86,20 @@ function createCard(cardData) {
 }
 
 function handleAddCardSubmit(inputValues) {
-  createCard(inputValues);
-  variables.profileAddForm.reset();
-  addFormValidator.toggleButtonState();
+  // createCard(inputValues);
+  // variables.profileAddForm.reset();
+  // addFormValidator.toggleButtonState();
+  // pass input values
+  api.addNewCard(inputValues).then((res) => {
+    console.log(res);
+    // create a new card
+    createCard(inputValues);
+    // render it
+    variables.profileAddForm.reset();
+    // toggle button state
+    addFormValidator.toggleButtonState();
+    // close modal
+  });
   addPopup.close();
 }
 
