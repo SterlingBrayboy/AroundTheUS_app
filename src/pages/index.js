@@ -121,6 +121,10 @@ function openAddForm() {
 
 addPopup.setEventListeners();
 
+variables.profileAddButtonSelector.addEventListener("click", () =>
+  openAddForm()
+);
+
 const editPopup = new PopupWithForm(
   variables.editCardClass,
   handleEditFormSubmit
@@ -139,9 +143,17 @@ variables.profileEditButtonSelector.addEventListener("click", () => {
   openEditForm();
 });
 
-variables.profileAddButtonSelector.addEventListener("click", () =>
-  openAddForm()
-);
+// const deletePopup = new PopupWithForm(variables.deleteCardClass);
+
+// function openDeleteForm() {
+//   deletePopup.open();
+// }
+
+// deletePopup.setEventListeners();
+
+// variables.cardDeleteButton.addEventListener("click", () => {
+//   openDeleteForm();
+// });
 
 // USER INFO
 
