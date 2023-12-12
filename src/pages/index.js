@@ -2,6 +2,8 @@ import PopupWithForm from "../components/PopupWithForm.js";
 
 import PopupWithImage from "../components/PopupWIthImage.js";
 
+// import PopupWithDelete from "../components/PopupWithDelete.js";
+
 import FormValidator from "../components/FormValidator.js";
 
 import UserInfo from "../components/UserInfo.js";
@@ -143,17 +145,9 @@ variables.profileEditButtonSelector.addEventListener("click", () => {
   openEditForm();
 });
 
-// const deletePopup = new PopupWithForm(variables.deleteCardClass);
-
-// function openDeleteForm() {
-//   deletePopup.open();
-// }
-
-// deletePopup.setEventListeners();
-
-// variables.cardDeleteButton.addEventListener("click", () => {
-//   openDeleteForm();
-// });
+// variables.cardDeleteSelector.addEventListener("click", () => {
+//   openAddForm();
+// })
 
 // USER INFO
 

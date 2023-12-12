@@ -1,14 +1,14 @@
-// import Popup from "./Popup.js";
+import Popup from "./Popup.js";
 
-// export default class PopupWithDelete extends Popup {
-//   constructor(popupSelector) {
-//     super({ popupSelector });
-//   }
+export default class PopupWithDelete extends Popup {
+  constructor(popupSelector) {
+    super({ popupSelector });
+  }
 
-//   setEventListeners() {
-//     this._popupElement.addEventListener("submit", () => {
-//       this._handleFormSubmit();
-//     });
-//     super.setEventListeners();
-//   }
-// }
+  setEventListeners() {
+    this._popupElement.addEventListener("submit", () => {
+      this._handleFormSubmit();
+    });
+    super.setEventListeners();
+  }
+}
