@@ -145,9 +145,9 @@ variables.profileEditButtonSelector.addEventListener("click", () => {
   openEditForm();
 });
 
-// variables.cardDeleteSelector.addEventListener("click", () => {
-//   openAddForm();
-// })
+variables.cardDeleteSelector.addEventListener("click", () => {
+  openAddForm();
+});
 
 // USER INFO
 
