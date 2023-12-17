@@ -11,4 +11,9 @@ export default class PopupWithDelete extends Popup {
     });
     super.setEventListeners();
   }
+
+  setSubmitAction(handleFormSubmit) {
+    this._handleFormSubmit = handleFormSubmit;
+    // this._popupElement.remove();
+  }
 }

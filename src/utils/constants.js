@@ -42,6 +42,8 @@ const variables = {
   descriptionInput: document.querySelector("#profile-description-input"),
   addCardClass: "#profile__add-modal",
   editCardClass: "#profile__edit-modal",
+  deleteCardClass: "#delete-modal",
+  deleteCardButtonSelector: document.querySelector(".gallery__card-trash"),
   profileEditButtonSelector: document.querySelector("#profile__edit-button"),
   profileAddButtonSelector: document.querySelector(".profile__add-button"),
 };

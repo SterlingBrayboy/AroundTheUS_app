@@ -78,14 +78,17 @@ popupWithImage.setEventListeners();
 
 // CARD
 
-const deleteModal = new PopupWithDelete(variables.deleteCardClass);
-
 function handleImageClick(cardData) {
   popupWithImage.open(cardData);
 }
 
 function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleDeleteClick
+  );
   section.addItem(card.generateCard());
 }
 
@@ -105,6 +108,18 @@ function handleAddCardSubmit(inputValues) {
     // close modal
   });
   addPopup.close();
+}
+
+function handleDeleteClick(data) {
+  const deleteModal = new PopupWithDelete(variables.deleteCardClass);
+  // open the modal
+  deleteModal.open();
+  // set the submit action
+  console.log(data.cardElement);
+  console.log(data._id);
+  deleteModal.setSubmitAction(() => {
+    // deleteModal.close();
+  });
 }
 
 // FORM VALIDATOR

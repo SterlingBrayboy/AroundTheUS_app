@@ -2,6 +2,7 @@ class Card {
   constructor(data, cardSelector, handleImageClick, handleDeleteClick) {
     this._name = data.name;
     this._link = data.link;
+    this._id = data._id;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
 
@@ -21,14 +22,16 @@ class Card {
   };
 
   _handleDelete = () => {
-    this._deleteform.classList.add("modal_opened");
-    // this._element.remove();
+    this._element.remove();
   };
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLike);
-    this._cardTrash.addEventListener("click", this._handleDelete);
+    // this._deleteFormButton.addEventListener("submit", this._handleDelete);
     // this._cardTrash.addEventListener("click", this._handleDeleteClick);
+    this._cardTrash.addEventListener("click", () => {
+      this._handleDeleteClick({ id: this._id, cardElement: this._element });
+    });
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });
     });
@@ -38,7 +41,7 @@ class Card {
     // select the like button, save to this
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector(".gallery__card-like");
-    this._deleteform = document.querySelector("#delete-modal");
+    this._deleteFormButton = document.querySelector("#delete-card-button");
     this._cardTrash = this._element.querySelector(".gallery__card-trash");
     this._cardImageEl = this._element.querySelector(".gallery__card-image");
 
