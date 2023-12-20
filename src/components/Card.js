@@ -30,7 +30,7 @@ class Card {
     // this._deleteFormButton.addEventListener("submit", this._handleDelete);
     // this._cardTrash.addEventListener("click", this._handleDeleteClick);
     this._cardTrash.addEventListener("click", () => {
-      this._handleDeleteClick({ id: this._id, cardElement: this._element });
+      this._handleDeleteClick(this);
     });
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });

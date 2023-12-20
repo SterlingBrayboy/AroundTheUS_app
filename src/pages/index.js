@@ -110,15 +110,20 @@ function handleAddCardSubmit(inputValues) {
   addPopup.close();
 }
 
-function handleDeleteClick(data) {
-  const deleteModal = new PopupWithDelete(variables.deleteCardClass);
+const deleteModal = new PopupWithDelete(variables.deleteCardClass);
+deleteModal.setEventListeners();
+
+function handleDeleteClick(card) {
   // open the modal
   deleteModal.open();
   // set the submit action
-  console.log(data.cardElement);
-  console.log(data._id);
   deleteModal.setSubmitAction(() => {
-    // deleteModal.close();
+    api
+      .deleteCard(card._id)
+      .then(() => {
+        // handle delete in DOM
+      })
+      .catch(console.error);
   });
 }
 

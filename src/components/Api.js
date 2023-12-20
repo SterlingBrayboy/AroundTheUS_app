@@ -79,6 +79,25 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  deleteCard(cardId) {
+    return fetch(
+      "https://around-api.en.tripleten-services.com/v1/cards/" + `${cardId}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // if the server returns an error, reject the promise
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
 }
 
 export default Api;
