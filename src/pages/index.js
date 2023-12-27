@@ -16,7 +16,7 @@ import Api from "../components/Api.js";
 
 import "./index.css";
 
-import { initialCards, config, variables } from "../utils/constants.js";
+import { config, variables } from "../utils/constants.js";
 
 // API
 
@@ -30,21 +30,31 @@ const api = new Api({
 
 // SECTION
 
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      createCard(cardData);
-    },
-  },
-  "gallery__cards"
-);
+// const section = new Section(
+//   {
+//     items: [],
+//     renderer: (cardData) => {
+//       createCard(cardData);
+//     },
+//   },
+//   "gallery__cards"
+// );
 
-section.renderItems();
+let section;
 
 api
   .getInitialCards()
   .then((res) => {
+    section = new Section(
+      {
+        items: res,
+        renderer: (cardData) => {
+          createCard(cardData);
+        },
+      },
+      "gallery__cards"
+    );
+    section.renderItems();
     console.log(res);
   })
   .catch(console.error);

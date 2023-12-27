@@ -82,7 +82,7 @@ class Api {
 
   deleteCard(cardId) {
     return fetch(
-      "https://around-api.en.tripleten-services.com/v1/cards/" + `${cardId}`,
+      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}`,
       {
         method: "DELETE",
         headers: {
