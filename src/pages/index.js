@@ -131,7 +131,8 @@ function handleDeleteClick(card) {
     api
       .deleteCard(card._id)
       .then(() => {
-        // handle delete in DOM
+        deleteModal.close();
+        // section.remove(cardData);
       })
       .catch(console.error);
   });
