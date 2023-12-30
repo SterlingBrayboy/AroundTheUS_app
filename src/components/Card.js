@@ -27,8 +27,7 @@ class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLike);
-    // this._deleteFormButton.addEventListener("submit", this._handleDelete);
-    // this._cardTrash.addEventListener("click", this._handleDeleteClick);
+    this._deleteFormButton.addEventListener("submit", this._handleDelete);
     this._cardTrash.addEventListener("click", () => {
       this._handleDeleteClick(this);
     });

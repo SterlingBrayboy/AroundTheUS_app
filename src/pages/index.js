@@ -99,6 +99,7 @@ function createCard(cardData) {
     handleImageClick,
     handleDeleteClick
   );
+  // card._handleDelete();
   section.addItem(card.generateCard());
 }
 
@@ -132,7 +133,6 @@ function handleDeleteClick(card) {
       .deleteCard(card._id)
       .then(() => {
         deleteModal.close();
-        // section.remove(cardData);
       })
       .catch(console.error);
   });
