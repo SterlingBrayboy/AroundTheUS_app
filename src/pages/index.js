@@ -99,9 +99,14 @@ function createCard(cardData) {
     handleImageClick,
     handleDeleteClick
   );
-  // card._handleDelete();
+  // card.handleDelete();
   section.addItem(card.generateCard());
 }
+
+// function cardDelete(cardData) {
+//   const card = new Card(cardData, "card-template");
+//   card.handleDelete();
+// }
 
 function handleAddCardSubmit(inputValues) {
   // createCard(inputValues);
