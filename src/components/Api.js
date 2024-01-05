@@ -97,11 +97,11 @@ class Api {
     });
   }
 
-  updateLike(cardId) {
+  updateLike(cardId, isLiked) {
     return fetch(
       `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
       {
-        method: isLiked ? "PUT" : "DELETE",
+        method: isLiked ? "DELETE" : "PUT",
         headers: {
           authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
           "Content-Type": "application/json",
