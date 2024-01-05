@@ -23,8 +23,6 @@ class Api {
   loadInfo() {
     return fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
       method: "GET",
-      name: "Jacques Cousteau",
-      about: "Sailor, researcher",
       avatar:
         "https://practicum-content.s3.us-west-1.amazonaws.com/frontend-developer/moved_avatar.jpg",
       _id: "e20537ed11237f86bbb20ccb",
@@ -85,6 +83,25 @@ class Api {
       `https://around-api.en.tripleten-services.com/v1/cards/${cardId}`,
       {
         method: "DELETE",
+        headers: {
+          authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // if the server returns an error, reject the promise
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  updateLike(cardId) {
+    return fetch(
+      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
+      {
+        method: isLiked ? "PUT" : "DELETE",
         headers: {
           authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
           "Content-Type": "application/json",

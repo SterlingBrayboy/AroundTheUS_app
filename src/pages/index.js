@@ -66,12 +66,12 @@ api
   })
   .catch(console.error);
 
-// api
-//   .editProfile()
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch(console.error);
+api
+  .editProfile()
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(console.error);
 
 // api
 //   .addNewCard()
@@ -79,6 +79,13 @@ api
 //     console.log(res);
 //   })
 //   .catch(console.error);
+
+api
+  .updateLike()
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(console.error);
 
 // POPUP WITH IMAGE
 
@@ -102,11 +109,6 @@ function createCard(cardData) {
   // card.handleDelete();
   section.addItem(card.generateCard());
 }
-
-// function cardDelete(cardData) {
-//   const card = new Card(cardData, "card-template");
-//   card.handleDelete();
-// }
 
 function handleAddCardSubmit(inputValues) {
   // createCard(inputValues);
@@ -138,6 +140,7 @@ function handleDeleteClick(card) {
       .deleteCard(card._id)
       .then(() => {
         deleteModal.close();
+        card.handleDelete();
       })
       .catch(console.error);
   });

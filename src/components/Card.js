@@ -21,7 +21,7 @@ class Card {
     this._likeButton.classList.toggle("gallery__card-like_active");
   };
 
-  _handleDelete = () => {
+  handleDelete = () => {
     this._element.remove();
   };
 
