@@ -97,7 +97,7 @@ class Api {
     });
   }
 
-  updateLike(card, isLiked) {
+  updateLike(cardId, isLiked) {
     return fetch(
       `https://around-api.en.tripleten-services.com/v1/cards/cardId/likes`,
       {
