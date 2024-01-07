@@ -99,7 +99,7 @@ class Api {
 
   updateLike(cardId, isLiked) {
     return fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/cardId/likes`,
+      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
       {
         method: isLiked ? "DELETE" : "PUT",
         headers: {
@@ -115,6 +115,28 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  // updateAvatar() {
+  //   return fetch(
+  //     "https://around-api.en.tripleten-services.com/v1/users/me/avatar ",
+  //     {
+  //       method: "PATCH",
+  //       headers: {
+  //         authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         // avatar: data.src,
+  //       }),
+  //     }
+  //   ).then((res) => {
+  //     if (res.ok) {
+  //       return res.json();
+  //     }
+  //     // if the server returns an error, reject the promise
+  //     return Promise.reject(`Error: ${res.status}`);
+  //   });
+  // }
 }
 
 export default Api;

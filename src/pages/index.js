@@ -80,12 +80,12 @@ api
 //   })
 //   .catch(console.error);
 
-api
-  .updateLike()
-  .then((res) => {
-    console.log(res);
-  })
-  .catch(console.error);
+// api
+//   .updateAvatar()
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch(console.error);
 
 // POPUP WITH IMAGE
 
@@ -104,17 +104,14 @@ function createCard(cardData) {
     cardData,
     "#card-template",
     handleImageClick,
-    handleDeleteClick
+    handleDeleteClick,
+    handleLikeClick
   );
   // card.handleDelete();
   section.addItem(card.generateCard());
 }
 
 function handleAddCardSubmit(inputValues) {
-  // createCard(inputValues);
-  // variables.profileAddForm.reset();
-  // addFormValidator.toggleButtonState();
-  // pass input values
   api.addNewCard(inputValues).then((res) => {
     console.log(res);
     // create a new card
@@ -127,6 +124,20 @@ function handleAddCardSubmit(inputValues) {
   });
   addPopup.close();
 }
+
+// CARD LIKE
+
+function handleLikeClick(card) {
+  api
+    .updateLike(card._id, isLiked)
+    .then(() => {
+      card.handleLike();
+    })
+    .catch(console.error);
+  // handle changing the button's state in a .then after the successful response
+}
+
+// HANDLE DELETE MODAL
 
 const deleteModal = new PopupWithDelete(variables.deleteCardClass);
 deleteModal.setEventListeners();
@@ -194,3 +205,19 @@ function handleEditFormSubmit(inputValues) {
   userinfo.setUserInfo(inputValues.name, inputValues.description);
   editPopup.close();
 }
+
+// function avatar(evt) {
+//   if (evt.target === variables.avatarimg) {
+//     variables.avataricon.classList.add("profile__icon_visible");
+//   }
+// }
+
+// avatar();
+
+function profileModal(evt) {
+  if (evt === variables.avatarImg) {
+    variables.avatarIcon.classList.toggle("profile__icon_visible");
+  }
+}
+
+profileModal();

@@ -1,10 +1,17 @@
 class Card {
-  constructor(data, cardSelector, handleImageClick, handleDeleteClick) {
+  constructor(
+    data,
+    cardSelector,
+    handleImageClick,
+    handleDeleteClick,
+    handleLikeClick
+  ) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
 
     this._cardSelector = cardSelector;
   }
@@ -27,6 +34,7 @@ class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._handleLike);
+    // this._handleLikeClick.addEventListener("click", this._handleLike);
     this._deleteFormButton.addEventListener("submit", this._handleDelete);
     this._cardTrash.addEventListener("click", () => {
       this._handleDeleteClick(this);

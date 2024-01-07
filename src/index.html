@@ -22,6 +22,11 @@
             src="<%=require('./images/jacques-cousteau.png')%>"
             alt="avatar"
           />
+          <img
+            class="profile__icon profile__icon_visible"
+            src="<%=require('./images/pencil.svg')%>"
+            alt="edit-icon"
+          />
           <div class="profile__info">
             <h1 class="profile__title">Jacqueu Cousteau</h1>
             <button
@@ -148,6 +153,28 @@
             id="delete-card-button"
           >
             Yes
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Change Avatar -->
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button
+          aria-label="Name"
+          type="button"
+          class="modal__close"
+          id="modal-avatar-button-close"
+        ></button>
+        <form class="modal__form" id="delete-card-form">
+          <h2 class="modal__heading">Change Profile Picture</h2>
+          <button
+            type="submit"
+            class="modal__container-button"
+            id="avatar-modal-button"
+          >
+            Save
           </button>
         </form>
       </div>
