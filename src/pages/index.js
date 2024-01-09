@@ -4,6 +4,8 @@ import PopupWithImage from "../components/PopupWIthImage.js";
 
 import PopupWithDelete from "../components/PopupWithDelete.js";
 
+import PopupWithAvatar from "../components/PopupWithAvatar.js";
+
 import FormValidator from "../components/FormValidator.js";
 
 import UserInfo from "../components/UserInfo.js";
@@ -29,16 +31,6 @@ const api = new Api({
 });
 
 // SECTION
-
-// const section = new Section(
-//   {
-//     items: [],
-//     renderer: (cardData) => {
-//       createCard(cardData);
-//     },
-//   },
-//   "gallery__cards"
-// );
 
 let section;
 
@@ -206,18 +198,12 @@ function handleEditFormSubmit(inputValues) {
   editPopup.close();
 }
 
-// function avatar(evt) {
-//   if (evt.target === variables.avatarimg) {
-//     variables.avataricon.classList.add("profile__icon_visible");
-//   }
-// }
+// PROFILE EDIT MODAL
 
-// avatar();
+const avatarModal = new PopupWithAvatar(variables.avatarModal);
+avatarModal.setEventListeners();
 
-function profileModal(evt) {
-  if (evt === variables.avatarImg) {
-    variables.avatarIcon.classList.toggle("profile__icon_visible");
-  }
-}
+const avatarImage = variables.avatarImg;
 
-profileModal();
+// const user = userinfo.getUserInfo();
+variables.avatarInput.value = avatarImage.src;

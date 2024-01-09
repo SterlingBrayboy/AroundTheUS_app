@@ -16,6 +16,5 @@ export default class PopupWithDelete extends Popup {
 
   setSubmitAction(handleFormSubmit) {
     this._handleFormSubmit = handleFormSubmit;
-    // this._popupElement.remove();
   }
 }
