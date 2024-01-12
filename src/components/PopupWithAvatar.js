@@ -12,11 +12,12 @@ export default class PopupWithAvatar extends Popup {
     this._iconEl.addEventListener("click", () => {
       this.open();
     });
+
     this._formEl.addEventListener("submit", (e) => {
-      this._handleFormSubmit = handleFormSubmit;
+      // this._handleFormSubmit = handleFormSubmit;
 
       e.preventDefault();
-      this._handleFormSubmit();
+      // this._handleFormSubmit();
     });
     super.setEventListeners();
   }

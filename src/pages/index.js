@@ -157,6 +157,9 @@ addFormValidator.enableValidation();
 const editFormValidator = new FormValidator(config, variables.profileEditModal);
 editFormValidator.enableValidation();
 
+const avatarFormValidator = new FormValidator(config, variables.avatarModal);
+avatarFormValidator.enableValidation();
+
 // POPUP WITH FORM
 
 const addPopup = new PopupWithForm(variables.addCardClass, handleAddCardSubmit);
@@ -203,7 +206,7 @@ function handleEditFormSubmit(inputValues) {
 const avatarModal = new PopupWithAvatar(variables.avatarModal);
 avatarModal.setEventListeners();
 
-const avatarImage = variables.avatarImg;
+// const avatarInput = variables.avatarInput;
+// const avatarImg = variables.avatarImg;
 
-// const user = userinfo.getUserInfo();
-variables.avatarInput.value = avatarImage.src;
+// avatarInput.textContent = avatarImg.src;
