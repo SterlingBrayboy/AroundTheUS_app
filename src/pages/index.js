@@ -4,7 +4,7 @@ import PopupWithImage from "../components/PopupWIthImage.js";
 
 import PopupWithDelete from "../components/PopupWithDelete.js";
 
-import PopupWithAvatar from "../components/PopupWithAvatar.js";
+// import PopupWithAvatar from "../components/PopupWithAvatar.js";
 
 import FormValidator from "../components/FormValidator.js";
 
@@ -160,7 +160,7 @@ editFormValidator.enableValidation();
 const avatarFormValidator = new FormValidator(config, variables.avatarModal);
 avatarFormValidator.enableValidation();
 
-// POPUP WITH FORM
+// POPUP WITH FORM - ADD FORM
 
 const addPopup = new PopupWithForm(variables.addCardClass, handleAddCardSubmit);
 
@@ -173,6 +173,8 @@ addPopup.setEventListeners();
 variables.profileAddButtonSelector.addEventListener("click", () =>
   openAddForm()
 );
+
+// POPUP WITH FORM - EDIT FORM
 
 const editPopup = new PopupWithForm(
   variables.editCardClass,
@@ -192,6 +194,29 @@ variables.profileEditButtonSelector.addEventListener("click", () => {
   openEditForm();
 });
 
+// POPUP WITH FORM - AVATAR FORM
+
+const avatarModal = new PopupWithForm(
+  variables.avatarModal,
+  handleAvatarFormSubmit
+);
+avatarModal.setEventListeners();
+
+function openAvatarForm() {
+  avatarModal.open();
+}
+
+variables.avatarIconSelector.addEventListener("click", () => {
+  openAvatarForm();
+});
+
+function handleAvatarFormSubmit(inputValues) {
+  api.updateAvatar(inputValues).then((res) => {
+    console.log(res);
+  });
+  avatarModal.close();
+}
+
 // USER INFO
 
 const userinfo = new UserInfo(".profile__title", ".profile__description");
@@ -200,13 +225,3 @@ function handleEditFormSubmit(inputValues) {
   userinfo.setUserInfo(inputValues.name, inputValues.description);
   editPopup.close();
 }
-
-// PROFILE EDIT MODAL
-
-const avatarModal = new PopupWithAvatar(variables.avatarModal);
-avatarModal.setEventListeners();
-
-// const avatarInput = variables.avatarInput;
-// const avatarImg = variables.avatarImg;
-
-// avatarInput.textContent = avatarImg.src;

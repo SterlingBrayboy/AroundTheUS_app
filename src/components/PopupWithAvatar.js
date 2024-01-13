@@ -1,8 +1,9 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithAvatar extends Popup {
-  constructor(popupSelector) {
+  constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
+    // this._handleFormSubmit = handleFormSubmit;
     this._iconEl = document.querySelector(".profile__icon");
   }
 
@@ -14,8 +15,6 @@ export default class PopupWithAvatar extends Popup {
     });
 
     this._formEl.addEventListener("submit", (e) => {
-      // this._handleFormSubmit = handleFormSubmit;
-
       e.preventDefault();
       // this._handleFormSubmit();
     });
