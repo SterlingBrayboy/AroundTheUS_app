@@ -116,9 +116,9 @@ class Api {
     });
   }
 
-  updateAvatar() {
+  updateAvatar(avatar) {
     return fetch(
-      "https://around-api.en.tripleten-services.com/v1/users/me/avatar ",
+      `https://around-api.en.tripleten-services.com/v1/users/me/${avatar}`,
       {
         method: "PATCH",
         headers: {
@@ -126,7 +126,8 @@ class Api {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          // avatar: data.src,
+          avatar:
+            "https://around-api.en.tripleten-services.com/v1/users/me/avatar",
         }),
       }
     ).then((res) => {
