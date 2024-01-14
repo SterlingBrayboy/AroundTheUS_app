@@ -211,7 +211,8 @@ variables.avatarIconSelector.addEventListener("click", () => {
 });
 
 function handleAvatarFormSubmit(inputValues) {
-  api.updateAvatar(inputValues).then((res) => {
+  api.updateAvatar(inputValues.link).then((res) => {
+    variables.avatarImage.src = inputValues.link;
     console.log(res);
   });
   avatarModal.close();

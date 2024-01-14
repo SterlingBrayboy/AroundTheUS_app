@@ -14,7 +14,7 @@ const variables = {
   nameInput: document.querySelector("#profile-name-input"),
   descriptionInput: document.querySelector("#profile-description-input"),
   avatarInput: document.querySelector("#avatar-url-input"),
-  // avatarImg: "profile__avatar",
+  avatarImage: document.querySelector(".profile__avatar"),
   avatarIconSelector: document.querySelector(".profile__icon"),
   avatarModal: "#avatar-modal",
   addCardClass: "#profile__add-modal",
