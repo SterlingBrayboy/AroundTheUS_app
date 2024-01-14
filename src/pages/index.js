@@ -210,5 +210,5 @@ function handleEditFormSubmit(inputValues) {
   userinfo.setUserInfo(inputValues.name, inputValues.description);
   document.getElementById("edit-button").innerHTML = "Saving...";
   editPopup.close();
-  // variables.profileEditForm.reset();
+  variables.profileEditForm.reset();
 }

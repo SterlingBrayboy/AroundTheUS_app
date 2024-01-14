@@ -9,7 +9,7 @@ const config = {
 const variables = {
   profileEditModal: "#profile__edit-modal",
   profileAddModal: "#profile__add-modal",
-  profileEditForm: ".modal__form",
+  profileEditForm: document.querySelector("#edit-card-form"),
   profileAddForm: document.querySelector("#add-card-form"),
   nameInput: document.querySelector("#profile-name-input"),
   descriptionInput: document.querySelector("#profile-description-input"),
