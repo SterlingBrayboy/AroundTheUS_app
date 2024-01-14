@@ -4,8 +4,6 @@ import PopupWithImage from "../components/PopupWIthImage.js";
 
 import PopupWithDelete from "../components/PopupWithDelete.js";
 
-// import PopupWithAvatar from "../components/PopupWithAvatar.js";
-
 import FormValidator from "../components/FormValidator.js";
 
 import UserInfo from "../components/UserInfo.js";
@@ -65,20 +63,6 @@ api
   })
   .catch(console.error);
 
-// api
-//   .addNewCard()
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch(console.error);
-
-// api
-//   .updateAvatar()
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch(console.error);
-
 // POPUP WITH IMAGE
 
 const popupWithImage = new PopupWithImage("#picture-modal");
@@ -117,18 +101,6 @@ function handleAddCardSubmit(inputValues) {
   addPopup.close();
 }
 
-// CARD LIKE
-
-function handleLikeClick(card) {
-  api
-    .updateLike(card._id, isLiked)
-    .then(() => {
-      card.handleLike();
-    })
-    .catch(console.error);
-  // handle changing the button's state in a .then after the successful response
-}
-
 // HANDLE DELETE MODAL
 
 const deleteModal = new PopupWithDelete(variables.deleteCardClass);
@@ -147,6 +119,18 @@ function handleDeleteClick(card) {
       })
       .catch(console.error);
   });
+}
+
+// CARD LIKE
+
+function handleLikeClick(card) {
+  api
+    .updateLike(card._id, isLiked)
+    .then(() => {
+      card.handleLike();
+    })
+    .catch(console.error);
+  // handle changing the button's state in a .then after the successful response
 }
 
 // FORM VALIDATOR
@@ -224,5 +208,6 @@ const userinfo = new UserInfo(".profile__title", ".profile__description");
 
 function handleEditFormSubmit(inputValues) {
   userinfo.setUserInfo(inputValues.name, inputValues.description);
+  document.getElementById("edit-button").innerHTML = "Saving...";
   editPopup.close();
 }
