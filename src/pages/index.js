@@ -113,7 +113,7 @@ function handleDeleteClick(card) {
   // set the submit action
   deleteModal.setSubmitAction(() => {
     api
-      .deleteCard(card.id)
+      .deleteCard(card._id)
       .then(() => {
         deleteModal.close();
         card.handleDelete();
