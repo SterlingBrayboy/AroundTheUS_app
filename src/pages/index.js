@@ -56,18 +56,17 @@ api
   })
   .catch(console.error);
 
-api
-  .editProfile()
-  .then((res) => {
-    console.log(res);
-  })
-  .catch(console.error);
-
 // POPUP WITH IMAGE
 
 const popupWithImage = new PopupWithImage("#picture-modal");
 
 popupWithImage.setEventListeners();
+
+// SAVE BUTTON TEXT CHANGE FUNCTION FOR FORMS
+
+function setButtonText(buttin, text) {
+  buttin.textContent = text;
+}
 
 // CARD
 
@@ -88,6 +87,7 @@ function createCard(cardData) {
 }
 
 function handleAddCardSubmit(inputValues) {
+  setButtonText(variables.addModalButton, "Saving...");
   api.addNewCard(inputValues).then((res) => {
     console.log(res);
     // create a new card
@@ -97,6 +97,7 @@ function handleAddCardSubmit(inputValues) {
     // toggle button state
     addFormValidator.toggleButtonState();
     // close modal
+    setButtonText(variables.addModalButton, "Save");
   });
   addPopup.close();
 }
@@ -194,11 +195,22 @@ variables.avatarIconSelector.addEventListener("click", () => {
   openAvatarForm();
 });
 
+// function setButtonText(buttin, text) {
+//   buttin.textContent = text;
+// }
+
 function handleAvatarFormSubmit(inputValues) {
-  api.updateAvatar(inputValues.link).then((res) => {
-    variables.avatarImage.src = inputValues.link;
-    console.log(res);
-  });
+  setButtonText(variables.avatarModalButton, "Saving...");
+  api
+    .updateAvatar(inputValues.link)
+    .then((res) => {
+      variables.avatarImage.src = inputValues.link;
+      console.log(res);
+    })
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(variables.avatarModalButton, "Save");
+    });
   avatarModal.close();
 }
 
@@ -207,8 +219,16 @@ function handleAvatarFormSubmit(inputValues) {
 const userinfo = new UserInfo(".profile__title", ".profile__description");
 
 function handleEditFormSubmit(inputValues) {
-  userinfo.setUserInfo(inputValues.name, inputValues.description);
-  document.getElementById("edit-button").innerHTML = "Saving...";
+  setButtonText(variables.editModalButton, "Saving...");
+  api
+    .editProfile()
+    .then((res) => {
+      userinfo.setUserInfo(inputValues.name, inputValues.description);
+      console.log(res);
+    })
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(variables.editModalButton, "Save");
+    });
   editPopup.close();
-  variables.profileEditForm.reset();
 }

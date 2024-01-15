@@ -17,10 +17,13 @@ const variables = {
   avatarImage: document.querySelector(".profile__avatar"),
   avatarIconSelector: document.querySelector(".profile__icon"),
   avatarModal: "#avatar-modal",
+  avatarModalButton: document.querySelector("#avatar-modal-button"),
   addCardClass: "#profile__add-modal",
+  addModalButton: document.querySelector("#add-button"),
   editCardClass: "#profile__edit-modal",
   deleteCardClass: "#delete-modal",
   deleteCardButtonSelector: document.querySelector(".gallery__card-trash"),
+  editModalButton: document.querySelector("#edit-button"),
   profileEditButtonSelector: document.querySelector("#profile__edit-button"),
   profileAddButtonSelector: document.querySelector(".profile__add-button"),
 };
