@@ -78,15 +78,18 @@ class Api {
     });
   }
 
-  deleteCard(cardId) {
+  deleteCard() {
     return fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}`,
+      `https://around-api.en.tripleten-services.com/v1/cards/${_id}`,
       {
         method: "DELETE",
         headers: {
           authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          _id: cardId,
+        }),
       }
     ).then((res) => {
       if (res.ok) {
