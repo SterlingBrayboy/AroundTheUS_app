@@ -91,7 +91,7 @@ function handleAddCardSubmit(inputValues) {
   api.addNewCard(inputValues).then((res) => {
     console.log(res);
     // create a new card
-    createCard(inputValues);
+    createCard(res);
     // render it
     variables.profileAddForm.reset();
     // toggle button state
@@ -113,7 +113,7 @@ function handleDeleteClick(card) {
   // set the submit action
   deleteModal.setSubmitAction(() => {
     api
-      .deleteCard(cardId)
+      .deleteCard(card._id)
       .then(() => {
         deleteModal.close();
         card.handleDelete();
