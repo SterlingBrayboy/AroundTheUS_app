@@ -126,12 +126,15 @@ function handleDeleteClick(card) {
 
 function handleLikeClick(card) {
   api
-    .updateLike(card._id, isLiked)
+    .updateLike(card, isLiked)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch(console.error)
+    // handle changing the button's state in a .then after the successful response
     .then(() => {
       card.handleLike();
-    })
-    .catch(console.error);
-  // handle changing the button's state in a .then after the successful response
+    });
 }
 
 // FORM VALIDATOR

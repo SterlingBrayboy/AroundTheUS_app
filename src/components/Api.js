@@ -102,7 +102,7 @@ class Api {
 
   updateLike(cardId, isLiked) {
     return fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
+      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/${isLiked}`,
       {
         method: isLiked ? "DELETE" : "PUT",
         headers: {
