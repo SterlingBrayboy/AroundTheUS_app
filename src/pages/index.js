@@ -53,8 +53,8 @@ api
   .loadInfo()
   .then((res) => {
     console.log(res);
-    // variables.profileTitle = variables.nameInput;
-    // userinfo.setUserInfo([api.editProfile(name), api.editProfile(about)]);
+    userinfo.setUserInfo(res.name, res.about);
+    userinfo.setAvatar(res.link);
   })
   .catch(console.error);
 
@@ -128,10 +128,11 @@ function handleDeleteClick(card) {
 
 function handleLikeClick(card) {
   api
-    .updateLike(card._id, isLiked)
+    .updateLike(card._id)
     .then(() => {
       card.handleLike();
-      card.isLiked();
+      // card.isLiked();
+      console.log("Hello");
     })
     .catch(console.error);
   // handle changing the button's state in a .then after the successful response
@@ -198,10 +199,6 @@ variables.avatarIconSelector.addEventListener("click", () => {
   openAvatarForm();
 });
 
-// function setButtonText(buttin, text) {
-//   buttin.textContent = text;
-// }
-
 function handleAvatarFormSubmit(inputValues) {
   setButtonText(variables.avatarModalButton, "Saving...");
   api
@@ -224,9 +221,9 @@ const userinfo = new UserInfo(".profile__title", ".profile__description");
 function handleEditFormSubmit(inputValues) {
   setButtonText(variables.editModalButton, "Saving...");
   api
-    .editProfile()
+    .editProfile(inputValues.name, inputValues.description)
     .then((res) => {
-      userinfo.setUserInfo(inputValues.name, inputValues.description);
+      userinfo.setUserInfo(res.name, res.about);
       console.log(res);
     })
     .catch(console.error)

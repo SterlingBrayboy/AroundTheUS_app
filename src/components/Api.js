@@ -30,14 +30,16 @@ class Api {
       headers: {
         authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
       },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // if the server returns an error, reject the promise
+      return Promise.reject(`Error: ${res.status}`);
+    });
   }
 
-  editProfile() {
+  editProfile(name, about) {
     return fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
       method: "PATCH",
       headers: {
@@ -45,8 +47,8 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "name",
-        about: "about",
+        name: name,
+        about: about,
       }),
     }).then((res) => {
       if (res.ok) {
@@ -102,7 +104,7 @@ class Api {
 
   updateLike(cardId, isLiked) {
     return fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/${isLiked}`,
+      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
       {
         method: isLiked ? "DELETE" : "PUT",
         headers: {
