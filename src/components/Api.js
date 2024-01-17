@@ -45,8 +45,8 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "Jacques Cousteau",
-        about: "Sailor, researcher",
+        name: "name",
+        about: "about",
       }),
     }).then((res) => {
       if (res.ok) {

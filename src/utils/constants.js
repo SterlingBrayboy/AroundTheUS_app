@@ -12,6 +12,7 @@ const variables = {
   profileEditForm: document.querySelector("#edit-card-form"),
   profileAddForm: document.querySelector("#add-card-form"),
   nameInput: document.querySelector("#profile-name-input"),
+  profileTitle: document.querySelector("#profile-title"),
   descriptionInput: document.querySelector("#profile-description-input"),
   avatarInput: document.querySelector("#avatar-url-input"),
   avatarImage: document.querySelector(".profile__avatar"),

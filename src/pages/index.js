@@ -53,6 +53,8 @@ api
   .loadInfo()
   .then((res) => {
     console.log(res);
+    // variables.profileTitle = variables.nameInput;
+    // userinfo.setUserInfo([api.editProfile(name), api.editProfile(about)]);
   })
   .catch(console.error);
 
@@ -126,15 +128,13 @@ function handleDeleteClick(card) {
 
 function handleLikeClick(card) {
   api
-    .updateLike(card, isLiked)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch(console.error)
-    // handle changing the button's state in a .then after the successful response
+    .updateLike(card._id, isLiked)
     .then(() => {
       card.handleLike();
-    });
+      card.isLiked();
+    })
+    .catch(console.error);
+  // handle changing the button's state in a .then after the successful response
 }
 
 // FORM VALIDATOR

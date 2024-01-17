@@ -9,6 +9,7 @@ class Card {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
+    this._isLiked = data.isLiked;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
@@ -24,7 +25,11 @@ class Card {
     return cardElement;
   }
 
-  _handleLike = () => {
+  isLiked() {
+    return this._isLiked;
+  }
+
+  handleLike = () => {
     this._likeButton.classList.toggle("gallery__card-like_active");
   };
 
