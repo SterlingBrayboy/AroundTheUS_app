@@ -121,7 +121,7 @@ class Api {
     });
   }
 
-  updateAvatar(link) {
+  updateAvatar(avatar) {
     return fetch(
       `https://around-api.en.tripleten-services.com/v1/users/me/avatar`,
       {
@@ -131,7 +131,7 @@ class Api {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          avatar: link,
+          avatar: avatar,
         }),
       }
     ).then((res) => {

@@ -54,7 +54,7 @@ api
   .then((res) => {
     console.log(res);
     userinfo.setUserInfo(res.name, res.about);
-    userinfo.setAvatar(res.link);
+    userinfo.setAvatar(res.avatar);
   })
   .catch(console.error);
 
@@ -130,9 +130,9 @@ function handleLikeClick(card) {
   api
     .updateLike(card._id)
     .then(() => {
+      console.log();
       card.handleLike();
-      // card.isLiked();
-      console.log("Hello");
+      // console.log("Hello");
     })
     .catch(console.error);
   // handle changing the button's state in a .then after the successful response
@@ -216,7 +216,11 @@ function handleAvatarFormSubmit(inputValues) {
 
 // USER INFO
 
-const userinfo = new UserInfo(".profile__title", ".profile__description");
+const userinfo = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  ".profile__avatar"
+);
 
 function handleEditFormSubmit(inputValues) {
   setButtonText(variables.editModalButton, "Saving...");

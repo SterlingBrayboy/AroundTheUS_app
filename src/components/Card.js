@@ -29,7 +29,7 @@ class Card {
     return this._isLiked;
   }
 
-  _handleLike = () => {
+  handleLike = () => {
     this._likeButton.classList.toggle("gallery__card-like_active");
   };
 
