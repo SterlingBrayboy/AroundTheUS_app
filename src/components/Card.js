@@ -29,8 +29,9 @@ class Card {
     return this._isLiked;
   }
 
-  handleLike = () => {
+  handleLikeClick = () => {
     this._likeButton.classList.toggle("gallery__card-like_active");
+    // this.isLiked(false);
   };
 
   handleDelete = () => {
@@ -38,7 +39,7 @@ class Card {
   };
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", this._handleLike);
+    this._likeButton.addEventListener("click", this._handleLikeClick);
     this._deleteFormButton.addEventListener("submit", this._handleDelete);
     this._cardTrash.addEventListener("click", () => {
       this._handleDeleteClick(this);

@@ -84,7 +84,6 @@ function createCard(cardData) {
     handleDeleteClick,
     handleLikeClick
   );
-  // card.handleDelete();
   section.addItem(card.generateCard());
 }
 
@@ -130,9 +129,8 @@ function handleLikeClick(card) {
   api
     .updateLike(card._id)
     .then(() => {
-      console.log();
-      card.handleLike();
-      // console.log("Hello");
+      card._handleLikeClick();
+      console.log("Hello");
     })
     .catch(console.error);
   // handle changing the button's state in a .then after the successful response
