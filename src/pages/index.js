@@ -130,6 +130,7 @@ function handleLikeClick(card) {
     .updateLike(card._id)
     .then(() => {
       card.handleLike();
+      // card.updateLikeView();
       console.log(card);
     })
     .catch(console.error);

@@ -40,7 +40,7 @@ class Card {
   updateLikeView() {
     // write a public method to update like icon after successful response
     // it just needs to toggle a class probably
-    // this._likeButton.classList.toggle("gallery__card-like");
+    this._likeButton.classList.toggle("gallery__card-like");
   }
 
   _setEventListeners() {
@@ -74,7 +74,7 @@ class Card {
       this._name;
 
     if (this._isLiked === true) {
-      console.log(this.updateLikeView());
+      this.updateLikeView();
     }
 
     return this._element;
