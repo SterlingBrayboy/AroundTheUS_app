@@ -129,8 +129,8 @@ function handleLikeClick(card) {
   api
     .updateLike(card._id)
     .then(() => {
-      card._handleLikeClick();
-      console.log("Hello");
+      card.handleLike();
+      console.log(card);
     })
     .catch(console.error);
   // handle changing the button's state in a .then after the successful response
