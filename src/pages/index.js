@@ -127,7 +127,7 @@ function handleDeleteClick(card) {
 
 function handleLikeClick(card) {
   api
-    .updateLike(card._id)
+    .updateLike(card._id, card.isLiked())
     .then(() => {
       card.handleLike();
       // card.updateLikeView();
