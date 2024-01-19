@@ -35,6 +35,7 @@ class Card {
 
   handleDelete = () => {
     this._element.remove();
+    this._element = null;
   };
 
   updateLikeView() {
@@ -49,7 +50,7 @@ class Card {
   }
 
   _setEventListeners() {
-    this._deleteFormButton.addEventListener("submit", this._handleDelete);
+    // this._deleteFormButton.addEventListener("submit", this._handleDelete);
     this._cardTrash.addEventListener("click", () => {
       this._handleDeleteClick(this);
     });

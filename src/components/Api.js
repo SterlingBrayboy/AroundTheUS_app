@@ -2,6 +2,22 @@ class Api {
   constructor(options) {
     // constructor body
     this._headers = options.headers;
+    this._baseUrl = options._baseUrl;
+  }
+
+  // api = new Api({
+  //   baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  //   headers: {
+  //     authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
+  //     "Content-Type": "application/json",
+  //   },
+  // });
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error ${res.status}`);
   }
 
   getInitialCards() {
@@ -9,13 +25,7 @@ class Api {
       headers: {
         authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      // if the server returns an error, reject the promise
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
   // other methods for working with the API
@@ -25,18 +35,11 @@ class Api {
       method: "GET",
       avatar:
         "https://practicum-content.s3.us-west-1.amazonaws.com/frontend-developer/moved_avatar.jpg",
-      _id: "e20537ed11237f86bbb20ccb",
       cohort: "group-42",
       headers: {
         authorization: "ebfbe580-59e8-4623-9d1e-5edf14608279",
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      // if the server returns an error, reject the promise
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
   editProfile(name, about) {
@@ -50,13 +53,7 @@ class Api {
         name: name,
         about: about,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      // if the server returns an error, reject the promise
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
   // pass name and link as argument
@@ -71,13 +68,7 @@ class Api {
         name: data.name,
         link: data.link,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      // if the server returns an error, reject the promise
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
   deleteCard(cardId) {
@@ -93,13 +84,7 @@ class Api {
           _id: cardId,
         }),
       }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      // if the server returns an error, reject the promise
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    ).then(this._checkResponse);
   }
 
   updateLike(cardId, isLiked) {
@@ -112,13 +97,7 @@ class Api {
           "Content-Type": "application/json",
         },
       }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      // if the server returns an error, reject the promise
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    ).then(this._checkResponse);
   }
 
   updateAvatar(avatar) {
@@ -134,13 +113,7 @@ class Api {
           avatar: avatar,
         }),
       }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      // if the server returns an error, reject the promise
-      return Promise.reject(`Error: ${res.status}`);
-    });
+    ).then(this._checkResponse);
   }
 }
 

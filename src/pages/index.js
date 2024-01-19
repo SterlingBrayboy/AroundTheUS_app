@@ -66,8 +66,8 @@ popupWithImage.setEventListeners();
 
 // SAVE BUTTON TEXT CHANGE FUNCTION FOR FORMS
 
-function setButtonText(buttin, text) {
-  buttin.textContent = text;
+function setButtonText(button, text) {
+  button.textContent = text;
 }
 
 // CARD
@@ -89,18 +89,23 @@ function createCard(cardData) {
 
 function handleAddCardSubmit(inputValues) {
   setButtonText(variables.addModalButton, "Saving...");
-  api.addNewCard(inputValues).then((res) => {
-    console.log(res);
-    // create a new card
-    createCard(res);
-    // render it
-    variables.profileAddForm.reset();
-    // toggle button state
-    addFormValidator.toggleButtonState();
-    // close modal
-    setButtonText(variables.addModalButton, "Save");
-  });
-  addPopup.close();
+  api
+    .addNewCard(inputValues)
+    .then((res) => {
+      console.log(res);
+      // create a new card
+      createCard(res);
+      // render it
+      variables.profileAddForm.reset();
+      // toggle button state
+      addFormValidator.toggleButtonState();
+      // close modal
+      addPopup.close();
+    })
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(variables.addModalButton, "Save");
+    });
 }
 
 // HANDLE DELETE MODAL
@@ -158,9 +163,7 @@ function openAddForm() {
 
 addPopup.setEventListeners();
 
-variables.profileAddButtonSelector.addEventListener("click", () =>
-  openAddForm()
-);
+variables.profileAddButton.addEventListener("click", () => openAddForm());
 
 // POPUP WITH FORM - EDIT FORM
 
@@ -178,7 +181,7 @@ function openEditForm() {
 
 editPopup.setEventListeners();
 
-variables.profileEditButtonSelector.addEventListener("click", () => {
+variables.profileEditButton.addEventListener("click", () => {
   openEditForm();
 });
 
@@ -194,7 +197,7 @@ function openAvatarForm() {
   avatarModal.open();
 }
 
-variables.avatarIconSelector.addEventListener("click", () => {
+variables.avatarIcon.addEventListener("click", () => {
   openAvatarForm();
 });
 
@@ -205,12 +208,12 @@ function handleAvatarFormSubmit(inputValues) {
     .then((res) => {
       variables.avatarImage.src = inputValues.link;
       console.log(res);
+      avatarModal.close();
     })
     .catch(console.error)
     .finally(() => {
       setButtonText(variables.avatarModalButton, "Save");
     });
-  avatarModal.close();
 }
 
 // USER INFO
@@ -228,10 +231,10 @@ function handleEditFormSubmit(inputValues) {
     .then((res) => {
       userinfo.setUserInfo(res.name, res.about);
       console.log(res);
+      editPopup.close();
     })
     .catch(console.error)
     .finally(() => {
       setButtonText(variables.editModalButton, "Save");
     });
-  editPopup.close();
 }
