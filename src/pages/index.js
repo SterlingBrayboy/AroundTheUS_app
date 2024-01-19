@@ -53,8 +53,7 @@ api
   .loadInfo()
   .then((res) => {
     console.log(res);
-    userinfo.setUserInfo(res.name, res.about);
-    userinfo.setAvatar(res.avatar);
+    userinfo.setUserInfo(res.name, res.about, res.avatar);
   })
   .catch(console.error);
 
