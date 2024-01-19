@@ -1,5 +1,5 @@
 class UserInfo {
-  constructor(userNameSelector, userDescriptionSelector, userAvatarElement) {
+  constructor(userNameSelector, userDescriptionSelector, userAvatar) {
     this._userNameElement = document.querySelector(userNameSelector);
     this._userDescriptionElement = document.querySelector(
       userDescriptionSelector
@@ -20,7 +20,7 @@ class UserInfo {
   }
 
   setAvatar(avatar) {
-    this._userAvatarElement.src = avatar;
+    this._userAvatar.src = avatar; // This sets the avatar in api.loadInfo();
   }
 }
 
