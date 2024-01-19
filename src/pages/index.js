@@ -203,9 +203,10 @@ variables.avatarIcon.addEventListener("click", () => {
 function handleAvatarFormSubmit(inputValues) {
   setButtonText(variables.avatarModalButton, "Saving...");
   api
-    .updateAvatar(inputValues.link)
+    .updateAvatar(inputValues.avatar)
     .then((res) => {
-      variables.avatarImage.src = inputValues.link;
+      // variables.avatarImage.src = inputValues.link;
+      userinfo.setUserInfo(res.avatar);
       console.log(res);
       avatarModal.close();
     })
