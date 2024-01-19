@@ -4,7 +4,7 @@ class UserInfo {
     this._userDescriptionElement = document.querySelector(
       userDescriptionSelector
     );
-    this._userAvatarElement = document.querySelector(userAvatarElement);
+    this._userAvatar = document.querySelector(userAvatar);
   }
 
   getUserInfo() {
