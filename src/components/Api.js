@@ -23,8 +23,6 @@ class Api {
   loadInfo() {
     return fetch(this.baseUrl + "/users/me", {
       method: "GET",
-      avatar:
-        "https://practicum-content.s3.us-west-1.amazonaws.com/frontend-developer/moved_avatar.jpg",
       cohort: "group-42",
       headers: this._headers,
     }).then(this._checkResponse);
@@ -46,7 +44,6 @@ class Api {
     return fetch(this.baseUrl + "/cards", {
       method: "POST",
       headers: this._headers,
-      "Content-Type": "application/json",
       body: JSON.stringify({
         name: data.name,
         link: data.link,
@@ -58,7 +55,6 @@ class Api {
     return fetch(this.baseUrl + `/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-      "Content-Type": "application/json",
       body: JSON.stringify({
         _id: cardId,
       }),
@@ -69,7 +65,6 @@ class Api {
     return fetch(this.baseUrl + `/cards/${cardId}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
-      "Content-Type": "application/json",
     }).then(this._checkResponse);
   }
 
@@ -77,7 +72,6 @@ class Api {
     return fetch(this.baseUrl + `/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      "Content-Type": "application/json",
       body: JSON.stringify({
         avatar: avatar,
       }),

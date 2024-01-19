@@ -61,7 +61,6 @@ class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector(".gallery__card-like");
-    this._deleteFormButton = document.querySelector("#delete-card-button");
     this._cardTrash = this._element.querySelector(".gallery__card-trash");
     this._cardImageEl = this._element.querySelector(".gallery__card-image");
 
