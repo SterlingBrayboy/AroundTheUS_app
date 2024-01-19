@@ -39,9 +39,6 @@ class Card {
   };
 
   updateLikeView() {
-    // write a public method to update like icon after successful response
-    // it just needs to toggle a class probably
-    // this._likeButton.classList.toggle("gallery__card-like_active");
     if (this._isLiked) {
       this._likeButton.classList.add("gallery__card-like_active");
     } else {
@@ -50,13 +47,11 @@ class Card {
   }
 
   _setEventListeners() {
-    // this._deleteFormButton.addEventListener("submit", this._handleDelete);
     this._cardTrash.addEventListener("click", () => {
       this._handleDeleteClick(this);
     });
     this._likeButton.addEventListener("click", () => {
       this._handleLikeClick(this);
-      // this._handleLike()
     });
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });
@@ -64,8 +59,6 @@ class Card {
   }
 
   generateCard() {
-    // select the like button, save to this
-
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector(".gallery__card-like");
     this._deleteFormButton = document.querySelector("#delete-card-button");
@@ -78,10 +71,6 @@ class Card {
     this._cardImageEl.alt = `Photo of ${this._name}`;
     this._element.querySelector(".gallery__card-title").textContent =
       this._name;
-
-    // if (this._isLiked) {
-    //   this.updateLikeView();
-    // }
 
     this.updateLikeView();
 

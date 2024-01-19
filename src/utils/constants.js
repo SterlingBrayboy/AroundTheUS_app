@@ -23,8 +23,6 @@ const variables = {
   addModalButton: document.querySelector("#add-button"),
   editCardClass: "#profile__edit-modal",
   deleteCardClass: "#delete-modal",
-  // deleteCardButtonSelector: document.querySelector(".gallery__card-trash"),
-  // cardLikeButtonSelector: document.querySelector(".gallery__card-like"),
   editModalButton: document.querySelector("#edit-button"),
   profileEditButton: document.querySelector("#profile__edit-button"),
   profileAddButton: document.querySelector(".profile__add-button"),
