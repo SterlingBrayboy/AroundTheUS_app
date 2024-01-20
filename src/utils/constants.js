@@ -1,30 +1,3 @@
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
 const config = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__container-button",
@@ -36,14 +9,23 @@ const config = {
 const variables = {
   profileEditModal: "#profile__edit-modal",
   profileAddModal: "#profile__add-modal",
-  profileEditForm: ".modal__form",
+  profileEditForm: document.querySelector("#edit-card-form"),
   profileAddForm: document.querySelector("#add-card-form"),
   nameInput: document.querySelector("#profile-name-input"),
+  profileTitle: document.querySelector("#profile-title"),
   descriptionInput: document.querySelector("#profile-description-input"),
+  avatarInput: document.querySelector("#avatar-url-input"),
+  avatarImage: document.querySelector(".profile__avatar"),
+  avatarIcon: document.querySelector(".profile__icon"),
+  avatarModal: "#avatar-modal",
+  avatarModalButton: document.querySelector("#avatar-modal-button"),
   addCardClass: "#profile__add-modal",
+  addModalButton: document.querySelector("#add-button"),
   editCardClass: "#profile__edit-modal",
-  profileEditButtonSelector: document.querySelector("#profile__edit-button"),
-  profileAddButtonSelector: document.querySelector(".profile__add-button"),
+  deleteCardClass: "#delete-modal",
+  editModalButton: document.querySelector("#edit-button"),
+  profileEditButton: document.querySelector("#profile__edit-button"),
+  profileAddButton: document.querySelector(".profile__add-button"),
 };
 
-export { initialCards, config, variables };
+export { config, variables };
