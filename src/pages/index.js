@@ -53,9 +53,8 @@ api
   .loadInfo()
   .then((res) => {
     console.log(res);
-    // userinfo.setUserInfo({ name: res.name, description: res.about });
-    // userinfo.setUserInfo({ avatar: res.avatar });
-    userinfo.setUserInfo(res.name, res.about, res.avatar);
+    userinfo.setUserInfo(res.name, res.about);
+    userinfo.setAvatar(res.avatar);
   })
   .catch(console.error);
 
@@ -136,7 +135,6 @@ function handleLikeClick(card) {
     .updateLike(card._id, card.isLiked())
     .then(() => {
       card.handleLike();
-      // card.updateLikeView();
       console.log(card);
     })
     .catch(console.error);
@@ -205,10 +203,9 @@ variables.avatarIcon.addEventListener("click", () => {
 function handleAvatarFormSubmit(inputValues) {
   setButtonText(variables.avatarModalButton, "Saving...");
   api
-    .updateAvatar(inputValues.avatar)
+    .updateAvatar(inputValues.link)
     .then((res) => {
-      // variables.avatarImage.src = inputValues.link;
-      userinfo.setUserInfo(res.avatar);
+      userinfo.setAvatar(res.avatar);
       console.log(res);
       avatarModal.close();
     })
