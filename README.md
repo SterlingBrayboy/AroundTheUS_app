@@ -17,7 +17,8 @@ Responses to these actions are updated to the server, and new changes are loaded
 
 **GitHub Pages**
 
-- [VISIT Around The U.S](https://sterlingbrayboy.github.io/se_project_aroundtheus/)
+- [VISIT Around The U.S](https://sterlingbrayboy.github.io/AroundTheUS_app/) 
+
 
 **NOTES**
 
