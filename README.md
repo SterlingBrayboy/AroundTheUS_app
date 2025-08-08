@@ -16,7 +16,7 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **GitHub Pages**
 
-- [Link to the Project on GitHub Pages](https://sterlingbrayboy.github.io/se_project_aroundtheus/)
+- [Link to the Project on GitHub Pages](https://sterlingbrayboy.github.io/AroundTheUS_app/)
 
 **Images**
 
